@@ -44,6 +44,12 @@ public class Main {
 				Constants.printWAR = false;
 				i++;				
 			}
+			else if (test.equals("-h"))
+			{
+				Constants.histoPath = args[i + 1];
+				Constants.doCluster = true;
+				i++;
+			}
 			else if (test.equals("-r"))
 			{
 				Constants.printLinearReport = true;
@@ -62,11 +68,13 @@ public class Main {
 			}
 			else if (test.equals("-cf"))
 			{
-				Constants.falseCluster = true;
+				Constants.doCluster = true;
+				Constants.clusterType = DepType.FALSE;
 			}
 			else if (test.equals("-ct"))
 			{
-				Constants.trueCluster = true;
+				Constants.doCluster = true;
+				Constants.clusterType = DepType.TRUE;
 			}
 			else if (test.equals("--topbottom"))
 			{

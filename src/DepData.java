@@ -57,10 +57,17 @@ public class DepData {
 		writer.write("\trankdir=" + Constants.graphOrientation + ";\n");
 		writer.write("\tcompound=\"true\";\n\n");
 		
-		if (Constants.trueCluster)
-			clusterDotPrint(writer, trulySortedList);
-		else if (Constants.falseCluster)
-			clusterDotPrint(writer, sortedList);
+		if (Constants.doCluster)
+			switch (Constants.clusterType) {
+			case TRUE:
+				clusterDotPrint(writer, trulySortedList);			
+				break;
+			case FALSE:
+				clusterDotPrint(writer, sortedList);
+				break;
+			default:
+				break;
+			}
 		else
 			simpleDotPrint(writer);
 		
@@ -397,7 +404,6 @@ public class DepData {
 		System.out.println("\tNumber of effective false dependencies:\t" + effectiveFalseDeps + "\t(" + decFor.format((double)effectiveFalseDeps/(totalTrueDeps + effectiveFalseDeps)) + ")");
 		System.out.println("\tNumber of true dependencies:\t\t" + totalTrueDeps + "\t(" + decFor.format((double )totalTrueDeps / (totalTrueDeps + effectiveFalseDeps)) + ")");
 	}
-	
 
 	public void printFalseSort() {
 		int counter = 0;
@@ -419,10 +425,83 @@ public class DepData {
 		}
 	}
 	
+	public void histoPlot() throws IOException {
+		Writer writerData, writerDescriptor;
+		
+		if (Constants.histoDataPath == null)
+			Constants.histoDataPath = ".histoData";
+		if (Constants.histoDescriptorPath == null)
+			Constants.histoDescriptorPath = ".histoDescriptor";		
+			
+		Path pData = Paths.get(Constants.histoDataPath);
+		Path pDescriptor = Paths.get(Constants.histoDescriptorPath);		
+		
+		writerData = Files.newBufferedWriter(pData, Charset.defaultCharset());
+		writerDescriptor = Files.newBufferedWriter(pDescriptor, Charset.defaultCharset());
+						
+		createHistData(writerData);
+		createHistoDescriptor(writerDescriptor);
+		callGnuPlot();
+	}
+	
+	private void createHistData(Writer writer) throws IOException {
+		ArrayList<Set<Call>> list;
+		
+		list = Constants.clusterType == DepType.FALSE ? sortedList : trulySortedList;
+		
+		for (int i = 0; i < list.size(); i++)
+		{
+			Set<Call> s = list.get(i);			
+			writer.write(i + "\t" + s.size());
+		}
+		
+		writer.close();
+	}
+
+	/*
+	 
+	 */
+	private void callGnuPlot() throws IOException {
+		ProcessBuilder builder;
+		ArrayList<String> callArgs = new ArrayList<String>();
+		
+		callArgs.add("gnuplot");
+		callArgs.add(Constants.histoPath);
+		
+		builder = new ProcessBuilder(callArgs);
+		
+		System.out.println(">> Executing gnuplot as the following: ");
+		System.out.println("\t" + builder.command().toString());
+		
+		builder.start();		
+	}
+
+	/**
+	 * Function for writing a gnuplot script for generating a histogram
+	 * of the topological sort sets' cardinalities.
+	 * @param writer
+	 * @throws IOException 
+	 */
+	private void createHistoDescriptor(Writer writer) throws IOException {		
+		writer.write("reset\n");
+		writer.write("unset key\n");
+		writer.write("set terminal png\n");
+		writer.write("set output " + "\"" + Constants.histoPath + "\"\n");
+		writer.write("set style data histogram");
+		writer.write("set boxwidth 0.9 relative");
+		writer.write("set style data histograms");
+		writer.write("set style histogram cluster");
+		writer.write("set style fill solid 1.0");
+		writer.write("set xtics border offset 1");
+		writer.write("plot for [COL=2:2] '" + Constants.histoDataPath + "'");
+		writer.close();
+	}
+
 	//Função main destinada a testes
 	public static void main (String[] args)
 	{
-		System.out.println(System.getProperty("user.dir") + "/.dotswap");
-		System.out.println("[]");
+		System.out.println("'Entre aspas simples'");
+//		System.out.println(System.getProperty("user.dir") + "/.dotswap");
+//		System.out.println("[]");
 	}
 }
