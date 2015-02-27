@@ -1,4 +1,3 @@
-//import java.awt.Container;
 import java.io.IOException;
 import java.io.Writer;
 import java.nio.charset.Charset;
@@ -14,7 +13,6 @@ import java.util.Set;
 
 public class DepData {
 	private ArrayList<Call> calls;
-	//private HashSet<Call> maximum;
 	private ArrayList<Set<Call>> sortedList;
 	private ArrayList<Set<Call>> trulySortedList;
 	private ColorCode colorCode;
@@ -115,14 +113,6 @@ public class DepData {
 			simpleDotPrint(writer, s);
 			writer.write("\t}\n\n");
 		}
-		
-		//TODO: Make sure that the clusters display follow the topological order!
-		/*
-		for (int i = 0; i < list.size() - 1; i++)
-		{
-			writer.write("\tcluster" + i + " -> cluster" + (i + 1) + ";\n");			
-		}
-		*/
 	}
 
 	private void simpleDotPrint(Writer writer, Set<Call> set) throws IOException {
@@ -257,74 +247,9 @@ public class DepData {
 		}
 		
 		clearUntrueDeps();
-		//findMaximumSet();
 		topologicallySort();
 		trueTopologicalSort();
 	}
-	
-	/*
-	private class MaxTry implements Cloneable{
-		ArrayList<Call> included;
-		int index;
-		
-		public MaxTry()
-		{
-			included = new ArrayList<Call>();
-		}
-		
-		public MaxTry(int newIndex)
-		{
-			included = new ArrayList<Call>();
-			setIndex(newIndex);
-		}
-		
-		public MaxTry (Set<Call> inheritedCalls)
-		{
-			included = new ArrayList<Call>(inheritedCalls);
-		}
-		
-		public MaxTry (ArrayList<Call> inheritedCalls)
-		{
-			included = new ArrayList<Call>(inheritedCalls);
-		}
-		
-		public MaxTry (ArrayList<Call> inheritedCalls, int newIndex)
-		{
-			included = new ArrayList<Call>(inheritedCalls);
-			setIndex(newIndex);
-		}
-		
-		public void setIndex (int newIndex)
-		{
-			index = newIndex;
-		}
-		
-		public HashSet<Call> getIncluded()
-		{
-			return new HashSet<Call>(included);
-		}
-		
-		public void addCall (Call c)
-		{
-			included.add(c);
-		}
-		
-		public void removeCall (Call c)
-		{
-			included.remove(c);
-		}
-		
-		public MaxTry clone ()
-		{
-			return new MaxTry(included, index);
-		}
-		
-		public int size ()
-		{
-			return included.size();
-		}
-	}
-	*/
 	
 	private void topologicallySort()
 	{
@@ -365,18 +290,6 @@ public class DepData {
 			trulySortedList.add(freeNodes);
 		}			
 	}
-	
-	/*
-	private void findMaximumSet() {
-		MaxTry t = new MaxTry();
-		
-		tryMaxSet(t);
-	}
-
-	private void tryMaxSet(MaxTry t) {
-		
-	}
-	*/
 
 	private void clearUntrueDeps() {
 		for (Call c: calls)
@@ -458,9 +371,6 @@ public class DepData {
 		writer.close();
 	}
 
-	/*
-	 
-	 */
 	private void callGnuPlot() throws IOException {
 		ProcessBuilder builder;
 		ArrayList<String> callArgs = new ArrayList<String>();
@@ -497,7 +407,6 @@ public class DepData {
 		writer.close();
 	}
 
-	//Função main destinada a testes
 	public static void main (String[] args)
 	{
 		System.out.println("'Entre aspas simples'");
