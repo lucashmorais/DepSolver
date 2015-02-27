@@ -4,6 +4,7 @@ import java.util.Random;
 public class Color {
 	Random rnd;
 	long value;
+	//TODO: Adicionar novo jogo de cores
 	static int[] defaultColors = {0x64B65C, 0x506C92, 0xDEB570, 0xDA6E73, 0x53BE47, 0x426699, 0xE8B257, 0xE4565D};
 	static int numOfUsedColors = 0;
 	
