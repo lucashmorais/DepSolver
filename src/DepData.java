@@ -365,18 +365,32 @@ public class DepData {
 		for (int i = 0; i < list.size(); i++)
 		{
 			Set<Call> s = list.get(i);			
-			writer.write(i + "\t" + s.size());
+			writer.write(i + "\t" + s.size() + "\n");
 		}
 		
 		writer.close();
 	}
 
+	private void createHistoDescriptor(Writer writer) throws IOException {		
+		writer.write("reset\n");
+		writer.write("unset key\n");
+		writer.write("set terminal png\n");
+		writer.write("set output " + "\"" + Constants.histoPath + "\"\n");
+		writer.write("set boxwidth 0.9 relative\n");
+		writer.write("set style data histograms\n");
+		writer.write("set style histogram cluster\n");
+		writer.write("set style fill solid 1.0\n");
+		writer.write("set xtics border offset 1\n");
+		writer.write("plot for [COL=2:2] '" + Constants.histoDataPath + "' using COL:xticlabels(1)\n");
+		writer.close();
+	}
+	
 	private void callGnuPlot() throws IOException {
 		ProcessBuilder builder;
 		ArrayList<String> callArgs = new ArrayList<String>();
 		
 		callArgs.add("gnuplot");
-		callArgs.add(Constants.histoPath);
+		callArgs.add(Constants.histoDescriptorPath);
 		
 		builder = new ProcessBuilder(callArgs);
 		
@@ -384,27 +398,6 @@ public class DepData {
 		System.out.println("\t" + builder.command().toString());
 		
 		builder.start();		
-	}
-
-	/**
-	 * Function for writing a gnuplot script for generating a histogram
-	 * of the topological sort sets' cardinalities.
-	 * @param writer
-	 * @throws IOException 
-	 */
-	private void createHistoDescriptor(Writer writer) throws IOException {		
-		writer.write("reset\n");
-		writer.write("unset key\n");
-		writer.write("set terminal png\n");
-		writer.write("set output " + "\"" + Constants.histoPath + "\"\n");
-		writer.write("set style data histogram");
-		writer.write("set boxwidth 0.9 relative");
-		writer.write("set style data histograms");
-		writer.write("set style histogram cluster");
-		writer.write("set style fill solid 1.0");
-		writer.write("set xtics border offset 1");
-		writer.write("plot for [COL=2:2] '" + Constants.histoDataPath + "'");
-		writer.close();
 	}
 
 	public static void main (String[] args)
