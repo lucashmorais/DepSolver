@@ -32,15 +32,7 @@ public class Color {
 	}
 	
 	public static void main (String [] args)
-	{
-		//System.out.println("Random color: " + new Color());
-		/*
-		for (int val: defaultColors)
-		{
-			System.out.println(val);
-		}
-		*/
-		
+	{		
 		for (int i = 0; i < defaultColors.length; i++)
 			System.out.println(new Color());
 	}
