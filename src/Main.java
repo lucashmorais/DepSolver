@@ -94,10 +94,12 @@ public class Main {
 		d.solveDependencies();
 		d.printAllCalls();
 		if (Constants.printMetrics) d.printDepMetrics();
-		if (Constants.printLinearReport) d.printLinearDepGraph();
-		if (Constants.dotPath != null || Constants.generateDotGraph) d.printDotGraph();
+		if (Constants.printLinearReport) d.printLinearDepGraph();		
 		if (Constants.printFalseSort) d.printFalseSort();
 		if (Constants.printTrueSort) d.printTrueSort();
+		if (Constants.generateHistogram) d.histoPlot();
+		if (Constants.dotPath != null || Constants.generateDotGraph) d.printDotGraph();
+		
 	}
 	
 }
