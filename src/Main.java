@@ -46,7 +46,6 @@ public class Main {
 			}
 			else if (test.equals("-h"))
 			{
-				//TODO
 				System.out.println("H seen!");
 				Constants.generateHistogram = true;
 				Constants.doCluster = true;
@@ -100,9 +99,22 @@ public class Main {
 		if (Constants.printLinearReport) d.printLinearDepGraph();		
 		if (Constants.printFalseSort) d.printFalseSort();
 		if (Constants.printTrueSort) d.printTrueSort();
-		if (Constants.generateHistogram) d.histoPlot();
-		if (Constants.dotPath != null || Constants.generateDotGraph) d.printDotGraph();
-		
+		if (Constants.generateHistogram)
+			if (Constants.histoPath != null)
+				d.histoPlot();
+			else
+			{
+				System.out.println("You should specify the histogram file path after \"-h\"");
+				return;
+			}
+		if (Constants.generateDotGraph)
+			if (Constants.dotPath != null)
+				d.printDotGraph();
+			else
+			{
+				System.out.println("You should specify the dependency graph file path");
+				return;			
+			}
 	}
 	
 }
