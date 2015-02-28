@@ -115,6 +115,5 @@ public class Main {
 				System.out.println("You should specify the dependency graph file path");
 				return;			
 			}
-	}
-	
+	}	
 }
