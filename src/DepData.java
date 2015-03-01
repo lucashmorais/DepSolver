@@ -27,7 +27,6 @@ public class DepData {
 	public DepData (Collection<Call> newCalls)
 	{
 		calls = new ArrayList<Call>(newCalls);
-		//maximum = new HashSet<Call>();
 		colorCode = new ColorCode();
 	}
 	
