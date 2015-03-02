@@ -46,7 +46,6 @@ public class Main {
 			}
 			else if (test.equals("-h"))
 			{
-				System.out.println("H seen!");
 				Constants.generateHistogram = true;
 				Constants.doCluster = true;
 				Constants.histoPath = args[i + 1];
