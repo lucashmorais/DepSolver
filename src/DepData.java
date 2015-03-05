@@ -208,6 +208,48 @@ public class DepData {
 	}
 
 	public void solveDependencies() {
+		
+		for (int i = 1; i < calls.size(); i++)
+		{
+			for (int j = 0; j < i; j++)
+			{
+				Call c = calls.get(i);
+				Call d = calls.get(j);
+				
+				if (d != c && d.getCallNumber() < c.getCallNumber())
+				{
+					//RAW Test
+					for (Integer pos: d.getWrites())
+					{
+						if (c.readsFrom(pos))
+						{
+							c.addRAW(d);
+							break;
+						}
+					}
+					//WAW Test
+					for (Integer pos: d.getWrites())
+					{
+						if (c.writesTo(pos))
+						{
+							c.addWAW(d);
+							break;
+						}
+					}
+					//WAR Test
+					for (Integer pos: d.getReads())
+					{
+						if (c.writesTo(pos))
+						{
+							c.addWAR(d);
+							break;
+						}
+					}					
+				}
+			}
+		}
+		
+			/*
 		for (Call c: calls)
 		{
 			for (Call d: calls)
@@ -244,6 +286,8 @@ public class DepData {
 				}
 			}
 		}
+		
+		*/
 		
 		clearUntrueDeps();
 		topologicallySort();
