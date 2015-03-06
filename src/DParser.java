@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 
 public class DParser {
@@ -39,11 +40,26 @@ public class DParser {
 
 	private void parseReadsAndWrites(HashSet<Integer> readPos, HashSet<Integer> writePos) throws IOException
 	{
-		Integer pos;
+		Integer pos, start, end;
 		
 		while (true)
 		{
-			if (nextLineIsRead())
+			//Tornar mais eficiente
+			if (nextLineIsReadRange())
+			{
+				String temp = in.readLine();
+				start = Integer.parseInt(temp.split(" ")[1]);
+				end = Integer.parseInt(temp.split(" ")[2]);
+				readPos.add(start, end);
+			}
+			else if (nextLineIsWriteRange())
+			{
+				String temp = in.readLine();
+				start = Integer.parseInt(temp.split(" ")[1]);
+				end = Integer.parseInt(temp.split(" ")[2]);
+				writePos.add(start, end);
+			}
+			else if (nextLineIsRead())
 			{
 				String temp = in.readLine();
 				pos = Integer.parseInt(temp.replace("R: ", ""), 16);
@@ -60,7 +76,28 @@ public class DParser {
 		}
 	}
 
-	//TODO Testar
+	private boolean nextLineIsWriteRange() throws IOException {
+		boolean b;		
+		in.mark(300);
+		
+		b = in.readLine().matches("[Ww]:[ ]*[ ]*[0-9a-fA-F]+[ ]*[[0-9a-fA-F]+");
+		
+		in.reset();
+		
+		return b;
+	}
+
+	private boolean nextLineIsReadRange() throws IOException {
+		boolean b;		
+		in.mark(300);
+		
+		b = in.readLine().matches("[Rr]:[ ]*[ ]*[0-9a-fA-F]+[ ]*[[0-9a-fA-F]+");
+		
+		in.reset();
+		
+		return b;
+	}
+
 	private boolean notEnded() throws IOException {
 		boolean b;
 		

@@ -10,9 +10,9 @@ testString="one two three four five six"
 #Runs cholesky for various inputs
 cd $benchmarksDir/$choleskyDir
 echo $( pwd )
-for i in $( seq 1 2)
+for i in $( seq 1 1)
 	do
-		for j in $( seq 1 10 )
+		for j in $( seq 1 8 )
 			do
 				name="e-$i-$j"
 				$( ./cholesky $i $j > ./executions/$name & )
