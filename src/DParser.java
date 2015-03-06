@@ -44,7 +44,7 @@ public class DParser {
 		
 		while (true)
 		{
-			//Tornar mais eficiente
+			//TODO: Tornar mais eficiente, começar a usar MemRange!
 			if (nextLineIsReadRange())
 			{
 				String temp = in.readLine();

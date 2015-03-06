@@ -12,7 +12,6 @@ public class MemRange {
 	
 	public MemRange ()
 	{
-		detachedPositions = new ArrayList<Integer>();
 		ranges = new ArrayList<IntegerRange>();
 	}
 	
@@ -72,6 +71,8 @@ public class MemRange {
 		return false;
 	}
 	
+	//TODO: Implementar comparação levando em conta os limites mínimos e máximos!
+	//TODO: Procurar evitar o uso da função de interseção de IntegerRange!
 	public boolean intersects(MemRange x)
 	{		
 		if (!(this.getMin() >= x.getMin() && this.getMin() <= x.getMax() || x.getMin() >= this.getMin() && x.getMin() <= this.getMax()))

@@ -4,6 +4,7 @@ import java.util.TreeSet;
 
 
 public class Call implements Cloneable{
+	//TODO: Trocar estas estruturas de dados por MemRanges!
 	TreeSet<Integer> readPositions;
 	TreeSet<Integer> writePositions;
 	HashSet<Call> RAWDependencies;
