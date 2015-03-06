@@ -4,7 +4,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 
 public class DParser {
@@ -26,76 +25,45 @@ public class DParser {
 		for (int i = 0; notEnded(); i++)
 		{
 			String name;
-			HashSet<Integer> readPos = new HashSet<Integer>();
-			HashSet<Integer> writePos = new HashSet<Integer>();
+			MemRange reads = new MemRange();
+			MemRange writes = new MemRange();
 			
 			name = parseName();
-			parseReadsAndWrites(readPos, writePos);
+			parseReadsAndWrites(reads, writes);
 			
-			data.addCall(new Call(i, name, readPos, writePos));			
+			data.addCall(new Call(i, name, reads, writes));			
 		}
 		
 		return data;		
 	}
 
-	private void parseReadsAndWrites(HashSet<Integer> readPos, HashSet<Integer> writePos) throws IOException
+	private void parseReadsAndWrites(MemRange reads, MemRange writes) throws IOException
 	{
-		Integer pos, start, end;
+		Integer start, end;
 		
 		while (true)
 		{
-			//TODO: Tornar mais eficiente, começar a usar MemRange!
-			if (nextLineIsReadRange())
+			if (nextLineIsRead())
 			{
-				String temp = in.readLine();
-				start = Integer.parseInt(temp.split(" ")[1]);
-				end = Integer.parseInt(temp.split(" ")[2]);
-				readPos.add(start, end);
-			}
-			else if (nextLineIsWriteRange())
-			{
-				String temp = in.readLine();
-				start = Integer.parseInt(temp.split(" ")[1]);
-				end = Integer.parseInt(temp.split(" ")[2]);
-				writePos.add(start, end);
-			}
-			else if (nextLineIsRead())
-			{
-				String temp = in.readLine();
-				pos = Integer.parseInt(temp.replace("R: ", ""), 16);
-				readPos.add(pos);
+				String temp = in.readLine();				
+				String[] elements = temp.split(" ");
+				
+				start = Integer.parseInt(elements[1], 16);
+				end = Integer.parseInt(elements[2], 16);
+				reads.add(start, end);
 			}
 			else if (nextLineIsWrite())
 			{
-				String temp = in.readLine();
-				pos = Integer.parseInt(temp.replace("W: ", ""), 16);
-				writePos.add(pos);				
+				String temp = in.readLine();				
+				String[] elements = temp.split(" ");
+				
+				start = Integer.parseInt(elements[1], 16);
+				end = Integer.parseInt(elements[2], 16);
+				writes.add(start, end);				
 			}
 			else
 				break;
 		}
-	}
-
-	private boolean nextLineIsWriteRange() throws IOException {
-		boolean b;		
-		in.mark(300);
-		
-		b = in.readLine().matches("[Ww]:[ ]*[ ]*[0-9a-fA-F]+[ ]*[[0-9a-fA-F]+");
-		
-		in.reset();
-		
-		return b;
-	}
-
-	private boolean nextLineIsReadRange() throws IOException {
-		boolean b;		
-		in.mark(300);
-		
-		b = in.readLine().matches("[Rr]:[ ]*[ ]*[0-9a-fA-F]+[ ]*[[0-9a-fA-F]+");
-		
-		in.reset();
-		
-		return b;
 	}
 
 	private boolean notEnded() throws IOException {
@@ -129,7 +97,18 @@ public class DParser {
 		boolean b;		
 		in.mark(300);
 		
-		b = in.readLine().matches("R: [0-9a-fA-F]+");
+		b = in.readLine().matches("R: [0-9a-fA-F]+ [0-9a-fA-F]+");
+		
+		in.reset();
+		
+		return b;
+	}
+	
+	private boolean nextLineIsWrite() throws IOException {
+		boolean b;		
+		in.mark(300);
+		
+		b = in.readLine().matches("W: [0-9a-fA-F]+ [0-9a-fA-F]+");
 		
 		in.reset();
 		
@@ -149,17 +128,6 @@ public class DParser {
 		}		
 		
 		return writes;
-	}
-
-	private boolean nextLineIsWrite() throws IOException {
-		boolean b;		
-		in.mark(300);
-		
-		b = in.readLine().matches("W: [0-9a-fA-F]+");
-		
-		in.reset();
-		
-		return b;
 	}
 
 	private String parseName() throws IOException {

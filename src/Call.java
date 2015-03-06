@@ -1,12 +1,11 @@
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 
 public class Call implements Cloneable{
 	//TODO: Trocar estas estruturas de dados por MemRanges!
-	TreeSet<Integer> readPositions;
-	TreeSet<Integer> writePositions;
+	MemRange reads;
+	MemRange writes;
 	HashSet<Call> RAWDependencies;
 	HashSet<Call> WAWDependencies;
 	HashSet<Call> WARDependencies;
@@ -32,7 +31,7 @@ public class Call implements Cloneable{
 	
 	public Call clone()
 	{
-		Call copy = new Call(callNumber, procedureName, readPositions, writePositions);
+		Call copy = new Call(callNumber, procedureName, reads, writes);
 		copy.setAllRAW(AllRAWDependencies);
 		copy.setRAW(RAWDependencies);
 		copy.setWAR(WARDependencies);
@@ -51,8 +50,8 @@ public class Call implements Cloneable{
 	
 	public Call ()
 	{
-		readPositions = new TreeSet<Integer>();
-		writePositions = new TreeSet<Integer>();
+		reads = new MemRange();
+		writes = new MemRange();
 		callNumber = -1;
 		procedureName = "UNMD";
 		initializeDepSets();
@@ -60,8 +59,8 @@ public class Call implements Cloneable{
 	
 	public Call (int num)
 	{
-		readPositions = new TreeSet<Integer>();
-		writePositions = new TreeSet<Integer>();
+		reads = new MemRange();
+		writes = new MemRange();
 		callNumber = num;
 		procedureName = "UNMD";
 		initializeDepSets();
@@ -69,17 +68,17 @@ public class Call implements Cloneable{
 
 	public Call (int num, String name)
 	{
-		readPositions = new TreeSet<Integer>();
-		writePositions = new TreeSet<Integer>();
+		reads = new MemRange();
+		writes = new MemRange();
 		callNumber = num;
 		procedureName = name;
 		initializeDepSets();
 	}
 	
-	public Call (int num, String name, Set<Integer> newReadPos, Set<Integer> newWritePos)
+	public Call (int num, String name, MemRange newReads, MemRange newWrites)
 	{
-		readPositions = new TreeSet<Integer>(newReadPos);
-		writePositions = new TreeSet<Integer>(newWritePos);
+		this.reads = new MemRange(newReads);
+		this.writes = new MemRange(newWrites);
 		callNumber = num;
 		procedureName = name;
 		initializeDepSets();
@@ -90,34 +89,34 @@ public class Call implements Cloneable{
 		procedureName = name;
 	}
 	
-	public void addRead(int pos)
+	public void addRead(int start, int end)
 	{
-		readPositions.add(pos);
+		reads.add(start, end);
 	}
 	
-	public void addWrite(int pos)
+	public void addWrite(int start, int end)
 	{
-		writePositions.add(pos);
+		writes.add(start, end);
 	}
 	
 	public boolean readsFrom(int pos)
 	{
-		return readPositions.contains(pos);
+		return reads.intersects(new IntegerRange(pos, pos));
 	}
 	
 	public boolean writesTo(int pos)
 	{
-		return writePositions.contains(pos);
+		return writes.intersects(new IntegerRange(pos, pos));
 	}
 	
-	public TreeSet<Integer> getWrites()
+	public MemRange getWrites()
 	{
-		return new TreeSet<Integer>(writePositions);
+		return new MemRange(writes);
 	}
 	
-	public TreeSet<Integer> getReads()
+	public MemRange getReads()
 	{
-		return new TreeSet<Integer>(readPositions);
+		return new MemRange(reads);
 	}
 	
 	public void addRAW (Call dep)

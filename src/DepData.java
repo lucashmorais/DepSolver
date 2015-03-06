@@ -12,10 +12,13 @@ import java.util.Set;
 
 
 public class DepData {
-	private ArrayList<Call> calls;
-	private ArrayList<Set<Call>> sortedList;
-	private ArrayList<Set<Call>> trulySortedList;
-	private ColorCode colorCode;
+	ArrayList<Call> calls;
+	ArrayList<Set<Call>> sortedList;
+	ArrayList<Set<Call>> trulySortedList;
+	
+
+	
+	ColorCode colorCode;
 	
 	
 	public DepData ()
@@ -208,92 +211,24 @@ public class DepData {
 	}
 
 	public void solveDependencies() {
+		MemRange reads = new MemRange();
+		MemRange writes = new MemRange();
 		
-		for (int i = 1; i < calls.size(); i++)
+		for (int i = 0; i < calls.size(); i++)
 		{
-			for (int j = 0; j < i; j++)
-			{
-				Call c = calls.get(i);
-				Call d = calls.get(j);
-				
-				if (d != c && d.getCallNumber() < c.getCallNumber())
-				{
-					//RAW Test
-					for (Integer pos: d.getWrites())
-					{
-						if (c.readsFrom(pos))
-						{
-							c.addRAW(d);
-							break;
-						}
-					}
-					//WAW Test
-					for (Integer pos: d.getWrites())
-					{
-						if (c.writesTo(pos))
-						{
-							c.addWAW(d);
-							break;
-						}
-					}
-					//WAR Test
-					for (Integer pos: d.getReads())
-					{
-						if (c.writesTo(pos))
-						{
-							c.addWAR(d);
-							break;
-						}
-					}					
-				}
-			}
+			
 		}
 		
-			/*
-		for (Call c: calls)
-		{
-			for (Call d: calls)
-			{
-				if (d != c && d.getCallNumber() < c.getCallNumber())
-				{
-					//RAW Test
-					for (Integer pos: d.getWrites())
-					{
-						if (c.readsFrom(pos))
-						{
-							c.addRAW(d);
-							break;
-						}
-					}
-					//WAW Test
-					for (Integer pos: d.getWrites())
-					{
-						if (c.writesTo(pos))
-						{
-							c.addWAW(d);
-							break;
-						}
-					}
-					//WAR Test
-					for (Integer pos: d.getReads())
-					{
-						if (c.writesTo(pos))
-						{
-							c.addWAR(d);
-							break;
-						}
-					}					
-				}
-			}
-		}
-		
-		*/
-		
-		clearUntrueDeps();
+		buildCompleteDepGraph();
 		topologicallySort();
 		trueTopologicalSort();
 	}
 	
+	private void buildCompleteDepGraph() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private void topologicallySort()
 	{
 		sortedList = new ArrayList<Set<Call>>();
@@ -334,6 +269,7 @@ public class DepData {
 		}			
 	}
 
+	@Deprecated //TODO: For removing!
 	private void clearUntrueDeps() {
 		for (Call c: calls)
 			for (Call d: c.getRAWDependencies())
