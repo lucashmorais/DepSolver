@@ -10,7 +10,6 @@ public class IntegerRange implements Comparable<IntegerRange>, MinGettable<Integ
 			b = B;
 		}
 		
-		@Deprecated
 		public boolean intersects (IntegerRange x)
 		{
 			return (this.a >= x.a && this.a <= x.b) || (x.a >= this.a && x.a <= this.b);
@@ -37,5 +36,14 @@ public class IntegerRange implements Comparable<IntegerRange>, MinGettable<Integ
 		@Override
 		public Integer getMin() {
 			return this.a;
+		}
+		
+		@Override
+		public boolean equals(Object other)
+		{
+			if (other.getClass() != IntegerRange.class)
+				return false;
+			
+			return this.a == ((IntegerRange) other).a;
 		}
 	}
