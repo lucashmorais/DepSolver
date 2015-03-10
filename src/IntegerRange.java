@@ -12,7 +12,34 @@ public class IntegerRange implements Comparable<IntegerRange>, MinGettable<Integ
 		
 		public boolean intersects (IntegerRange x)
 		{
-			return (this.a >= x.a && this.a <= x.b) || (x.a >= this.a && x.a <= this.b);
+			int a = x.a;
+			int b = x.b;
+			int A = this.a;
+			int B = this.b;
+			
+			return (A >= a && A <= b) || (B >= a && B <= b);
+		}
+		
+		public RangeRelation relationTo (IntegerRange x)
+		{
+			int a = x.a;
+			int b = x.b;
+			int A = this.a;
+			int B = this.b;
+			
+			//Notice that some cases use the fact that a <= b.
+			if (a < A && b >= A && b < B)
+				return RangeRelation.LOWINTERSECTS;
+			else if (a > A && a <= B && b > B)
+				return RangeRelation.HIGHINTERSECTS;
+			else if (a > A && a < B && b < B)
+				return RangeRelation.ISCONTAINED;
+			else if (a <= A && b >= B)
+				return RangeRelation.CONTAINS;
+			else if (b < A || a > B)
+				return RangeRelation.ISDISJOINTTO;
+			else
+				throw new Error("Could not correctly compare two Integer Ranges.");
 		}
 
 		@Override

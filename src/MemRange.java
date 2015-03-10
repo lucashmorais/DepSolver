@@ -1,55 +1,186 @@
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.NavigableMap;
 import java.util.TreeMap;
 
 
 public class MemRange implements MinGettable<IntegerRange> {
 	
-	TreeMap<IntegerRange, IntegerRange> rangesMap;	
+	TreeMap<IntegerRange, Call> rangesMap;	
 	
 	public MemRange ()
 	{
-		rangesMap = new TreeMap<IntegerRange, IntegerRange>();
+		rangesMap = new TreeMap<IntegerRange, Call>();
 	}
 	
 	public MemRange (MemRange old)
 	{
-		rangesMap = new TreeMap<IntegerRange, IntegerRange>(old.rangesMap);
+		rangesMap = new TreeMap<IntegerRange, Call>(old.rangesMap);
 	}
 	
-	public void add(int start, int end)
+	public ArrayList<Call> add(int start, int end, Call call)
 	{
-		add(new IntegerRange(start, end));
+		return add(new IntegerRange(start, end), call);
 	}
 	
-	public void add(IntegerRange range)
+	public ArrayList<Call> add(IntegerRange range, Call call)
 	{
+		Entry<IntegerRange, Call> lower, higher;
+		IntegerRange lowKey, highKey, newLow, newUpperLow;
+		Call lowVal, highVal;
+		ArrayList<Call> callList = new ArrayList<Call>();
+		boolean fromInclusive, toInclusive;		
 		
+		lower = rangesMap.floorEntry(range);
+		higher = rangesMap.ceilingEntry(new IntegerRange(range.b, range.b));
+		lowKey = lower.getKey();
+		highKey = higher.getKey();
+		lowVal = lower.getValue();
+		highVal = higher.getValue();
 		
-		rangesMap.put(range, range);
-	}
-	
-	public boolean remove(IntegerRange range)
-	{
-		return true;
+		fromInclusive = lowKey.b >= range.a;
+		toInclusive = range.b >= highKey.a;
+		
+		NavigableMap<IntegerRange, Call> miniMap = rangesMap.subMap(lowKey, fromInclusive, highKey, toInclusive);
+		
+		callList.addAll(miniMap.values());
+		
+		miniMap.clear();
+		
+		if (call == lowVal)
+		{
+			switch (range.relationTo(lowKey))
+			{
+			case CONTAINS:			rangesMap.put(range, call);
+									break;
+			case HIGHINTERSECTS:	range.a = lowKey.a;
+									rangesMap.put(range, call);
+									break;
+			case LOWINTERSECTS:		throw new Error("Impossible range relation occured.");
+			
+			case ISCONTAINED:		rangesMap.put(lowKey, lowVal);
+									break;
+			case ISDISJOINTTO:		rangesMap.put(lowKey, lowVal);
+									rangesMap.put(range, call);
+									break;
+			case ISHIGHCONTAINED:	rangesMap.put(lowKey, lowVal);
+									break;
+			case ISLOWCONTAINED:	rangesMap.put(lowKey, lowVal);
+									break;
+			}
+		}
+		else
+		{
+			newLow = new IntegerRange(lowKey.a, range.a - 1);
+			newUpperLow = new IntegerRange(range.b + 1, lowKey.b);
+			
+			switch (range.relationTo(lowKey))
+			{
+			case CONTAINS:			rangesMap.put(range, call);
+									break;
+			case HIGHINTERSECTS:	rangesMap.put(newLow, lowVal);
+									rangesMap.put(range, call);
+									break;
+			case LOWINTERSECTS:		throw new Error("Impossible range relation occured.");
+			
+			case ISCONTAINED:		rangesMap.put(newLow, lowVal);
+									rangesMap.put(newUpperLow, highVal);
+									rangesMap.put(range, call);
+									break;
+			case ISDISJOINTTO:		rangesMap.put(lowKey, lowVal);
+									rangesMap.put(range, call);
+									break;
+			case ISHIGHCONTAINED:	rangesMap.put(newLow, lowVal);
+									rangesMap.put(range, call);
+									break;
+			case ISLOWCONTAINED:	rangesMap.put(newUpperLow, lowVal);
+									rangesMap.put(range, call);
+									break;
+			}			
+		}
+		
+		if (call == highVal)
+		{
+			switch (range.relationTo(highKey))
+			{
+			case CONTAINS:			
+									break;
+			case HIGHINTERSECTS:	
+									break;
+			case LOWINTERSECTS:		throw new Error("Impossible range relation occured.");
+			
+			case ISCONTAINED:		
+									break;
+			case ISDISJOINTTO:		rangesMap.put(highKey, highVal);
+									break;
+			case ISHIGHCONTAINED:	
+									break;
+			case ISLOWCONTAINED:	
+									break;
+			}			
+		}
+		else
+		{			
+			switch (range.relationTo(highKey))
+			{
+			case CONTAINS:			
+									break;
+			case HIGHINTERSECTS:	
+									break;
+			case LOWINTERSECTS:		throw new Error("Impossible range relation occured.");
+			
+			case ISCONTAINED:		
+									break;
+			case ISDISJOINTTO:		rangesMap.put(highKey, highVal);
+									break;
+			case ISHIGHCONTAINED:	
+									break;
+			case ISLOWCONTAINED:	
+									break;
+			}				
+		}
+		
+		return callList;
 	}
 
 	//TODO: Implementar comparação levando em conta os limites mínimos e máximos!
-	//TODO: Procurar evitar o uso da função de interseção de IntegerRange!
 	public boolean intersects(MemRange x)
-	{		
+	{	
+		int thisMin = rangesMap.firstKey().a;
+		int thisMax = rangesMap.lastKey().b;
+		int thatMin = x.rangesMap.firstKey().a;
+		int thatMax = x.rangesMap.lastKey().b;
+		IntegerRange thisRough = new IntegerRange(thisMin, thisMax);
+		IntegerRange thatRough = new IntegerRange(thatMin, thatMax);
+		Iterator<IntegerRange> iterator;
+		
+		if (!thisRough.intersects(thatRough))
+			return false;
+		
+		//TODO: Do I really need a tailMap from rangesMap?
+		iterator = rangesMap.tailMap(rangesMap.floorKey(thatRough),true).navigableKeySet().iterator();
+		
+		//TODO: Test wheter iterator is able to retrieve the first item
+		while (iterator.hasNext())
+		{
+			if (this.intersects(iterator.next()))
+				return true;
+		}
+		
 		return false;
 	}
 
-	//TODO: Fix!
 	public boolean intersects(IntegerRange x)
 	{
-		return true;
+		IntegerRange tester = rangesMap.floorKey(new IntegerRange(x.b, x.b));
+		
+		return x.intersects(tester);
 	}
 	
 	@Override
 	public IntegerRange getMin() {
-		return null;
+		return rangesMap.firstKey();
 	}
 	
 	public static void main (String args[])
