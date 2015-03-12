@@ -22,10 +22,10 @@ public class IntegerRange implements Comparable<IntegerRange>, MinGettable<Integ
 		
 		public RangeRelation relationTo (IntegerRange x)
 		{
-			int a = x.a;
-			int b = x.b;
-			int A = this.a;
-			int B = this.b;
+			int A = x.a;
+			int B = x.b;
+			int a = this.a;
+			int b = this.b;
 			
 			//Notice that some cases use the fact that a <= b.
 			if (a < A && b >= A && b < B)
@@ -72,5 +72,10 @@ public class IntegerRange implements Comparable<IntegerRange>, MinGettable<Integ
 				return false;
 			
 			return this.a == ((IntegerRange) other).a;
+		}
+		
+		@Override
+		public String toString() {
+			return "[" + this.a + "," + this.b + "]";
 		}
 	}

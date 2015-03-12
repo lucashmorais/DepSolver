@@ -14,10 +14,7 @@ import java.util.Set;
 public class DepData {
 	ArrayList<Call> calls;
 	ArrayList<Set<Call>> sortedList;
-	ArrayList<Set<Call>> trulySortedList;
-	
-
-	
+	ArrayList<Set<Call>> trulySortedList;	
 	ColorCode colorCode;
 	
 	
@@ -214,14 +211,17 @@ public class DepData {
 		MemRange reads = new MemRange();
 		MemRange writes = new MemRange();
 		
-		for (int i = 0; i < calls.size(); i++)
+		for (Call c: calls)
 		{
-			
+			c.addRAW(writes.intersects(c.reads));
+			reads.add(c.reads);						//Adds reads
+			c.addWAW(writes.add(c.writes));			//Adds writes
+			c.addWAR(reads.intersects(c.writes));			
 		}
 		
 		buildCompleteDepGraph();
-		topologicallySort();
-		trueTopologicalSort();
+		//topologicallySort();
+		//trueTopologicalSort();
 	}
 	
 	private void buildCompleteDepGraph() {
@@ -269,6 +269,7 @@ public class DepData {
 		}			
 	}
 
+	@SuppressWarnings("unused")
 	@Deprecated //TODO: For removing!
 	private void clearUntrueDeps() {
 		for (Call c: calls)

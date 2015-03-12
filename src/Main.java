@@ -99,6 +99,7 @@ public class Main {
 		if (Constants.printFalseSort) d.printFalseSort();
 		if (Constants.printTrueSort) d.printTrueSort();
 		if (Constants.generateHistogram)
+		{
 			if (Constants.histoPath != null)
 				d.histoPlot();
 			else
@@ -106,13 +107,16 @@ public class Main {
 				System.out.println("You should specify the histogram file path after \"-h\"");
 				return;
 			}
+		}
 		if (Constants.generateDotGraph)
-			if (Constants.dotPath != null)
+		{
+			if (Constants.graphPath != null)
 				d.printDotGraph();
 			else
 			{
 				System.out.println("You should specify the dependency graph file path");
 				return;			
 			}
+		}
 	}	
 }

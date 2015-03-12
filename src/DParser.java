@@ -27,17 +27,21 @@ public class DParser {
 			String name;
 			MemRange reads = new MemRange();
 			MemRange writes = new MemRange();
+			Call newCall;
 			
 			name = parseName();
-			parseReadsAndWrites(reads, writes);
+			newCall = new Call(i, name);
+			parseReadsAndWrites(reads, writes, newCall);
+			newCall.reads = reads;
+			newCall.writes = writes;
 			
-			data.addCall(new Call(i, name, reads, writes));			
+			data.addCall(newCall);			
 		}
 		
 		return data;		
 	}
 
-	private void parseReadsAndWrites(MemRange reads, MemRange writes) throws IOException
+	private void parseReadsAndWrites(MemRange reads, MemRange writes, Call newCall) throws IOException
 	{
 		Integer start, end;
 		
@@ -50,7 +54,7 @@ public class DParser {
 				
 				start = Integer.parseInt(elements[1], 16);
 				end = Integer.parseInt(elements[2], 16);
-				reads.add(start, end);
+				reads.add(start, end, newCall);
 			}
 			else if (nextLineIsWrite())
 			{
@@ -59,7 +63,7 @@ public class DParser {
 				
 				start = Integer.parseInt(elements[1], 16);
 				end = Integer.parseInt(elements[2], 16);
-				writes.add(start, end);				
+				writes.add(start, end, newCall);				
 			}
 			else
 				break;

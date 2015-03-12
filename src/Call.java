@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -89,26 +90,6 @@ public class Call implements Cloneable{
 		procedureName = name;
 	}
 	
-	public void addRead(int start, int end)
-	{
-		reads.add(start, end);
-	}
-	
-	public void addWrite(int start, int end)
-	{
-		writes.add(start, end);
-	}
-	
-	public boolean readsFrom(int pos)
-	{
-		return reads.intersects(new IntegerRange(pos, pos));
-	}
-	
-	public boolean writesTo(int pos)
-	{
-		return writes.intersects(new IntegerRange(pos, pos));
-	}
-	
 	public MemRange getWrites()
 	{
 		return new MemRange(writes);
@@ -125,14 +106,36 @@ public class Call implements Cloneable{
 		AllRAWDependencies.add(dep);
 	}
 	
+	public void addRAW (ArrayList<Call> list)
+	{
+		if (list == null)
+			return;
+		RAWDependencies.addAll(list);
+		AllRAWDependencies.addAll(list);
+	}
+	
 	public void addWAW (Call dep)
 	{
 		WAWDependencies.add(dep);
 	}
 	
+	public void addWAW (ArrayList<Call> list)
+	{
+		if (list == null)
+			return;
+		WAWDependencies.addAll(list);
+	}
+	
 	public void addWAR (Call dep)
 	{
 		WARDependencies.add(dep);
+	}
+	
+	public void addWAR (ArrayList<Call> list)
+	{
+		if (list == null)
+			return;
+		WARDependencies.addAll(list);
 	}
 	
 	public String toString ()
