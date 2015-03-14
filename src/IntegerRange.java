@@ -34,6 +34,10 @@ public class IntegerRange implements Comparable<IntegerRange>, MinGettable<Integ
 				return RangeRelation.HIGHINTERSECTS;
 			else if (a > A && a < B && b < B)
 				return RangeRelation.ISCONTAINED;
+			else if (a == A && b < B)
+				return RangeRelation.ISLOWCONTAINED;
+			else if (a > A && b == B)
+				return RangeRelation.ISHIGHCONTAINED;
 			else if (a <= A && b >= B)
 				return RangeRelation.CONTAINS;
 			else if (b < A || a > B)

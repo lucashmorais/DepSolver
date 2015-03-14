@@ -93,6 +93,7 @@ public class MemRange implements MinGettable<IntegerRange> {
 		
 		miniMap.clear();
 		
+		//Notar que o código que segue não faz o coalescing dos intervalos [0,3] e [4,7]!
 		if (thereIsLow)
 		{			
 			if (call == lowVal)
@@ -303,6 +304,25 @@ public class MemRange implements MinGettable<IntegerRange> {
 		return rangesMap.firstKey();
 	}
 	
+	public static void testRandomAddWithCoalescing (int numOfAdds)
+	{
+		MemRange mem = new MemRange();
+		Random rand = new Random();
+		final int max = 100;
+		final int size = 4;
+		Call call = new Call(0, "call");
+		
+		for (int i = 0; i < numOfAdds; i++)
+		{
+			int start = rand.nextInt(max);
+			IntegerRange range = new IntegerRange(start, start + size);
+			
+			System.out.println("Adding range " + range + "...");
+			mem.add(range, call);
+			System.out.println("MemRange at iteration " + i + ": " + mem.rangesMap);
+		}
+	}
+	
 	public static void testRandomAdd (int numOfAdds)
 	{
 		MemRange mem = new MemRange();
@@ -372,5 +392,6 @@ public class MemRange implements MinGettable<IntegerRange> {
 		//teste2();
 		//teste3();
 		//testRandomAdd(100);
+		testRandomAddWithCoalescing(100);
 	}
 }
