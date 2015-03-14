@@ -27,11 +27,12 @@ public class MemRange implements MinGettable<IntegerRange> {
 	public ArrayList<Call> add(IntegerRange range, Call call)
 	{		
 		boolean thereIsLow, thereIsHigh;
+		boolean addRange = false;
 		Entry<IntegerRange, Call> lower, higher;
 		IntegerRange lowKey = null, highKey = null, newLow, newUpperLow;
 		Call lowVal = null, highVal = null;
 		ArrayList<Call> callList = new ArrayList<Call>();
-		NavigableMap<IntegerRange, Call> miniMap, auxMap;
+		NavigableMap<IntegerRange, Call> miniMap;
 		
 		if (rangesMap.isEmpty())
 		{
@@ -88,11 +89,7 @@ public class MemRange implements MinGettable<IntegerRange> {
 			return callList;
 		}
 		
-		callList.addAll(miniMap.values());	
-		
-		//System.out.println(miniMap);
-		
-		auxMap = new TreeMap<>(miniMap);
+		callList.addAll(miniMap.values());
 		
 		miniMap.clear();
 		
@@ -102,17 +99,17 @@ public class MemRange implements MinGettable<IntegerRange> {
 			{
 				switch (range.relationTo(lowKey))
 				{
-				case CONTAINS:			rangesMap.put(range, call);
+				case CONTAINS:			addRange = true;
 										break;
 				case HIGHINTERSECTS:	range.a = lowKey.a;
-										rangesMap.put(range, call);
+										addRange = true;
 										break;
 				case LOWINTERSECTS:		throw new Error("Impossible range relation occured.");
 				
 				case ISCONTAINED:		rangesMap.put(lowKey, lowVal);
 										break;
 				case ISDISJOINTTO:		rangesMap.put(lowKey, lowVal);
-										rangesMap.put(range, call);
+										addRange = true;
 										break;
 				case ISHIGHCONTAINED:	rangesMap.put(lowKey, lowVal);
 										break;
@@ -127,80 +124,84 @@ public class MemRange implements MinGettable<IntegerRange> {
 				
 				switch (range.relationTo(lowKey))
 				{
-				case CONTAINS:			rangesMap.put(range, call);
+				case CONTAINS:			addRange = true;
 										break;
 				case HIGHINTERSECTS:	rangesMap.put(newLow, lowVal);
-										rangesMap.put(range, call);
+										addRange = true;
 										break;
 				case LOWINTERSECTS:		throw new Error("Impossible range relation occured.");
 				
 				case ISCONTAINED:		rangesMap.put(newLow, lowVal);
 										rangesMap.put(newUpperLow, highVal);
-										rangesMap.put(range, call);
+										addRange = true;
 										break;
 				case ISDISJOINTTO:		rangesMap.put(lowKey, lowVal);
-										rangesMap.put(range, call);
+										addRange = true;
 										break;
 				case ISHIGHCONTAINED:	rangesMap.put(newLow, lowVal);
-										rangesMap.put(range, call);
+										addRange = true;
 										break;
 				case ISLOWCONTAINED:	rangesMap.put(newUpperLow, lowVal);
-										rangesMap.put(range, call);
+										addRange = true;
 										break;
 				}			
-			}
-			
-			
+			}			
 		}
+		else
+			addRange = true;
 		
+		//TODO: Remover atribuições lógicas redundantes!
 		if (thereIsHigh)
 		{
 			if (call == highVal)
 			{
 				switch (range.relationTo(highKey))
 				{
-				case CONTAINS:			
+				case CONTAINS:			addRange = true;							//highKey pode ser diferente de lowKey
 										break;
-				case HIGHINTERSECTS:	
-										rangesMap.put(highKey, highVal);
+				case HIGHINTERSECTS:												//lowKey existe e já foi adicionada
 										break;
-				case LOWINTERSECTS:		
-										rangesMap.put(highKey, highVal);
+				case LOWINTERSECTS:		range.b = highKey.b;						//highKey não precisa ser adicionada
+										addRange = true;
 										break;
-				case ISCONTAINED:		
+				case ISCONTAINED:		addRange = false;							//lowKey = highKey existe; range não será adicionada
 										break;
-				case ISDISJOINTTO:		
-										rangesMap.put(highKey, highVal);
+				case ISDISJOINTTO:		rangesMap.put(highKey, highVal);			//highKey deve ser readicionada
+										addRange = true;
 										break;
-				case ISHIGHCONTAINED:	
+				case ISHIGHCONTAINED:	addRange = false;							//lowKey = highKey já foi adicionada
 										break;
-				case ISLOWCONTAINED:	
+				case ISLOWCONTAINED:	addRange = false;							//lowKey = highKey já foi adicionada
 										break;
 				}			
 			}
 			else
-			{			
+			{	
+				IntegerRange newHigh = new IntegerRange(range.b + 1, highKey.b);
+				
 				switch (range.relationTo(highKey))
 				{
-				case CONTAINS:			
+				case CONTAINS:			addRange = true;							//highKey é sobrescrita
 										break;
-				case HIGHINTERSECTS:	
+				case HIGHINTERSECTS:	addRange = true;							//highKey = lowKey já foi tratada
 										break;
-				case LOWINTERSECTS:		
+				case LOWINTERSECTS:		addRange = true;							//highKey != lowKey deve ser readicionada
+										rangesMap.put(newHigh, highVal);
 										break;
-				case ISCONTAINED:		
+				case ISCONTAINED:		addRange = true;							//highKey = lowKey já foi tratada
 										break;
-				case ISDISJOINTTO:		rangesMap.put(highKey, highVal);
+				case ISDISJOINTTO:		rangesMap.put(highKey, highVal);			//adição de range dependerá de lowKey
 										break;
-				case ISHIGHCONTAINED:	
+				case ISHIGHCONTAINED:	addRange = false;							//highKey = lowKey já foi tratada
 										break;
-				case ISLOWCONTAINED:	
+				case ISLOWCONTAINED:	addRange = false;							//highKey = lowKey já foi tratada
 										break;
 				}				
 			}
-			
-			rangesMap.put(highKey, highVal);
 		}
+		
+		if (addRange)
+			rangesMap.put(range, call);
 		
 		return callList;
 	}
@@ -217,17 +218,17 @@ public class MemRange implements MinGettable<IntegerRange> {
 		return callList;
 	}
 
-	public void plainAdd(IntegerRange range, Call call)
+	private void plainAdd(IntegerRange range, Call call)
 	{
 		rangesMap.put(range, call);
 	}
 	
-	public void plainAdd(int start, int end, Call call)
+	private void plainAdd(int start, int end, Call call)
 	{
 		rangesMap.put(new IntegerRange(start, end), call);
 	}
 	
-	public void plainAdd(MemRange x)
+	private void plainAdd(MemRange x)
 	{
 		for (Entry<IntegerRange, Call> e: x.rangesMap.entrySet())
 		{
@@ -306,7 +307,6 @@ public class MemRange implements MinGettable<IntegerRange> {
 	{
 		MemRange mem = new MemRange();
 		Random rand = new Random();
-		final int min = 0;
 		final int max = 100;
 		final int size = 4;
 		
@@ -371,6 +371,6 @@ public class MemRange implements MinGettable<IntegerRange> {
 		//teste1();
 		//teste2();
 		//teste3();
-		testRandomAdd(10);
+		//testRandomAdd(100);
 	}
 }
