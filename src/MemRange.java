@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Map.Entry;
 import java.util.NavigableMap;
+import java.util.Random;
 import java.util.TreeMap;
 
 
@@ -83,6 +84,7 @@ public class MemRange implements MinGettable<IntegerRange> {
 		}
 		else
 		{
+			rangesMap.put(range, call);
 			return callList;
 		}
 		
@@ -95,9 +97,7 @@ public class MemRange implements MinGettable<IntegerRange> {
 		miniMap.clear();
 		
 		if (thereIsLow)
-		{
-			
-			
+		{			
 			if (call == lowVal)
 			{
 				switch (range.relationTo(lowKey))
@@ -149,6 +149,8 @@ public class MemRange implements MinGettable<IntegerRange> {
 										break;
 				}			
 			}
+			
+			
 		}
 		
 		if (thereIsHigh)
@@ -160,12 +162,15 @@ public class MemRange implements MinGettable<IntegerRange> {
 				case CONTAINS:			
 										break;
 				case HIGHINTERSECTS:	
+										rangesMap.put(highKey, highVal);
 										break;
-				case LOWINTERSECTS:		throw new Error("Impossible range relation occured.");
-				
+				case LOWINTERSECTS:		
+										rangesMap.put(highKey, highVal);
+										break;
 				case ISCONTAINED:		
 										break;
-				case ISDISJOINTTO:		rangesMap.put(highKey, highVal);
+				case ISDISJOINTTO:		
+										rangesMap.put(highKey, highVal);
 										break;
 				case ISHIGHCONTAINED:	
 										break;
@@ -181,8 +186,8 @@ public class MemRange implements MinGettable<IntegerRange> {
 										break;
 				case HIGHINTERSECTS:	
 										break;
-				case LOWINTERSECTS:		throw new Error("Impossible range relation occured.");
-				
+				case LOWINTERSECTS:		
+										break;
 				case ISCONTAINED:		
 										break;
 				case ISDISJOINTTO:		rangesMap.put(highKey, highVal);
@@ -193,6 +198,8 @@ public class MemRange implements MinGettable<IntegerRange> {
 										break;
 				}				
 			}
+			
+			rangesMap.put(highKey, highVal);
 		}
 		
 		return callList;
@@ -210,6 +217,24 @@ public class MemRange implements MinGettable<IntegerRange> {
 		return callList;
 	}
 
+	public void plainAdd(IntegerRange range, Call call)
+	{
+		rangesMap.put(range, call);
+	}
+	
+	public void plainAdd(int start, int end, Call call)
+	{
+		rangesMap.put(new IntegerRange(start, end), call);
+	}
+	
+	public void plainAdd(MemRange x)
+	{
+		for (Entry<IntegerRange, Call> e: x.rangesMap.entrySet())
+		{
+			rangesMap.put(e.getKey(), e.getValue());
+		}
+	}
+	
 	//TODO: Implementar comparação levando em conta os limites mínimos e máximos!
 	public ArrayList<Call> intersects(MemRange x)
 	{	
@@ -241,7 +266,8 @@ public class MemRange implements MinGettable<IntegerRange> {
 		Entry<IntegerRange, Call> lower, higher;
 		IntegerRange lowKey, highKey;
 		ArrayList<Call> callList = new ArrayList<Call>();
-		boolean fromInclusive, toInclusive;		
+		boolean fromInclusive = false, toInclusive = false;	
+		boolean thereIsLow, thereIsHigh;
 		
 		//TODO: Testar higher com ceiling
 		lower = rangesMap.floorEntry(range);
@@ -249,10 +275,22 @@ public class MemRange implements MinGettable<IntegerRange> {
 		lowKey = lower.getKey();
 		highKey = higher.getKey();
 		
-		fromInclusive = lowKey.b >= range.a;
-		toInclusive = range.b >= highKey.a;
+		thereIsLow = lowKey != null;
+		thereIsHigh = highKey != null;
 		
-		NavigableMap<IntegerRange, Call> miniMap = rangesMap.subMap(lowKey, fromInclusive, highKey, toInclusive);
+		if (thereIsLow) fromInclusive = lowKey.b >= range.a;
+		if (thereIsHigh) toInclusive = range.b >= highKey.a;
+		
+		NavigableMap<IntegerRange, Call> miniMap;
+		
+		if (thereIsLow && thereIsHigh)
+			miniMap = rangesMap.subMap(lowKey, fromInclusive, highKey, toInclusive);
+		else if (thereIsLow)
+			miniMap = rangesMap.tailMap(lowKey, fromInclusive);
+		else if (thereIsHigh)
+			miniMap = rangesMap.headMap(highKey, toInclusive);
+		else
+			return new ArrayList<Call>();
 		
 		callList.addAll(miniMap.values());
 		
@@ -262,6 +300,26 @@ public class MemRange implements MinGettable<IntegerRange> {
 	@Override
 	public IntegerRange getMin() {
 		return rangesMap.firstKey();
+	}
+	
+	public static void testRandomAdd (int numOfAdds)
+	{
+		MemRange mem = new MemRange();
+		Random rand = new Random();
+		final int min = 0;
+		final int max = 100;
+		final int size = 4;
+		
+		for (int i = 0; i < numOfAdds; i++)
+		{
+			int start = rand.nextInt(max);
+			Call call = new Call(i, "call");
+			IntegerRange range = new IntegerRange(start, start + size);
+			
+			System.out.println("Adding range " + range + "...");
+			mem.add(range, call);
+			System.out.println("MemRange at iteration " + i + ": " + mem.rangesMap);
+		}
 	}
 	
 	public static void teste3 ()
@@ -312,6 +370,7 @@ public class MemRange implements MinGettable<IntegerRange> {
 		//teste0();
 		//teste1();
 		//teste2();
-		teste3();
+		//teste3();
+		testRandomAdd(10);
 	}
 }
