@@ -10,38 +10,52 @@ testString="one two three four five six"
 #Runs cholesky for various inputs
 cd $benchmarksDir/$choleskyDir
 echo $( pwd )
-for i in $( seq 1 2)
+if [ ! -d "./executions" ]
+then
+	mkdir executions
+fi
+
+for i in $( seq 1 1)
 	do
-		for j in $( seq 1 10 )
+		for j in $( seq 1 8 )
 			do
 				name="e-$i-$j"
-				$( ./cholesky $i $j > ./executions/$name & )
+#				echo $name
+				./cholesky $i $j > ./executions/$name
 			done
 	done
 
 #Runs matmul for various inputs
-#cd $benchmarksDir/$matmulDir
-#echo $( pwd )
-#for i in $( seq 1 20 )
-#	do
-#		$( ./matmul $i > ./executions/e-$i & )
-#	done
+cd $benchmarksDir/$matmulDir
+echo $( pwd )
+if [ ! -d "./executions" ]
+then
+	mkdir executions
+fi
 
-#Old code, just for exploring bash
-#cd $benchmarksDir/$choleskyDir
-#echo $( pwd )
-#for i in $( seq 1 20 )
-#	do
-#		for j in $( seq 1 20 )
-#			do
-#				echo $( uname -r )	
-#			done
-#	done
+for i in $( seq 1 10 )
+	do
+		./matmul $i > ./executions/e-$i
+	done
+
+#Runs lu for various inputs
+cd $benchmarksDir/$luDir
+echo $( pwd )
+if [ ! -d "./executions" ]
+then
+	mkdir executions
+fi
+
+for i in $( seq 1 3 )
+	do
+		./lu $i > ./executions/e-$i
+	done
 
 #Section for generating the dependency graph for each of the inputs
 cd $benchmarksDir/$choleskyDir
 echo $( pwd )
 for i in $( ls executions )
 	do
-		java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i "executions/$i" "-cf" "-m" "-O graphs/$i-FALSE.png" "-h" "histograms/$-FALSE.png" 
+		java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i $benchmarksDir/$choleskyDir/executions/$i -m \
+		-O $benchmarksDir/$choleskyDir/graphs/$i-FALSE.png -h $benchmarksDir/$choleskyDir/histograms/$-FALSE.png 
 	done
