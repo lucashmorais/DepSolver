@@ -4,7 +4,6 @@ benchmarksDir=$1
 choleskyDir=cholesky
 matmulDir=matmul
 luDir=lu
-testString="one two three four five six"
 
 
 #Runs cholesky for various inputs
@@ -33,7 +32,7 @@ then
 	mkdir executions
 fi
 
-for i in $( seq 1 10 )
+for i in $( seq 1 6 )
 	do
 		./matmul $i > ./executions/e-$i
 	done
@@ -52,10 +51,12 @@ for i in $( seq 1 3 )
 	done
 
 #Section for generating the dependency graph for each of the inputs
-cd $benchmarksDir/$choleskyDir
+
+cd $benchmarksDir/$luDir
 echo $( pwd )
 for i in $( ls executions )
-	do
-		java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i $benchmarksDir/$choleskyDir/executions/$i -m \
-		-O $benchmarksDir/$choleskyDir/graphs/$i-FALSE.png -h $benchmarksDir/$choleskyDir/histograms/$-FALSE.png 
+        do
+	        java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i executions/$i -m -cf \
+	        -O graphs/$i-FALSE.png -h histograms/$i-FALSE.png
 	done
+

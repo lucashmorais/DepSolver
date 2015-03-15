@@ -107,7 +107,7 @@ public class Main {
 				return;
 			}
 		if (Constants.generateDotGraph)
-			if (Constants.dotPath != null)
+			if (Constants.graphPath != null)
 				d.printDotGraph();
 			else
 			{

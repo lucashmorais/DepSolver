@@ -11,6 +11,7 @@ public class DParser {
 	
 	public DParser(String path) throws FileNotFoundException
 	{
+		System.out.println(path); //TODO: Remover
 		in = new BufferedReader(new FileReader(path));
 	}
 	
@@ -66,7 +67,13 @@ public class DParser {
 		
 		in.mark(300);
 		
-		b = !in.readLine().matches("\\d+;\\s+\\d+");
+		String temp = in.readLine();
+		if (temp == null)
+		{
+			in.reset();
+			return false;
+		}
+		b = !temp.matches("\\d+;\\s*\\d+");
 		
 		in.reset();
 		
@@ -92,7 +99,13 @@ public class DParser {
 		boolean b;		
 		in.mark(300);
 		
-		b = in.readLine().matches("R: [0-9a-fA-F]+");
+		String temp = in.readLine();
+		if (temp == null)
+		{
+			in.reset();
+			return false;
+		}
+		b = temp.matches("R: [0-9a-fA-F]+");
 		
 		in.reset();
 		
@@ -118,7 +131,13 @@ public class DParser {
 		boolean b;		
 		in.mark(300);
 		
-		b = in.readLine().matches("W: [0-9a-fA-F]+");
+		String temp = in.readLine();
+		if (temp == null)
+		{
+			in.reset();
+			return false;
+		}
+		b = temp.matches("W: [0-9a-fA-F]+");
 		
 		in.reset();
 		
