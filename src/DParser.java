@@ -49,7 +49,7 @@ public class DParser {
 		{
 			if (nextLineIsRead())
 			{
-				String temp = in.readLine();				
+				String temp = in.readLine();
 				String[] elements = temp.split(" ");
 				
 				start = Integer.parseInt(elements[1], 16);

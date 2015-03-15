@@ -1,3 +1,4 @@
 *.class
 /bin
 .runTests.sh.swp
+*.jar

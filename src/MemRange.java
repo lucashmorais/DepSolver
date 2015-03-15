@@ -42,7 +42,6 @@ public class MemRange implements MinGettable<IntegerRange> {
 		
 		boolean fromInclusive, toInclusive;		
 		
-		//TODO: Testar higher com ceilingEntry
 		lower = rangesMap.floorEntry(range);
 		higher = rangesMap.floorEntry(new IntegerRange(range.b, range.b));
 		if (lower != null)
@@ -100,7 +99,10 @@ public class MemRange implements MinGettable<IntegerRange> {
 			{
 				switch (range.relationTo(lowKey))
 				{
-				case CONTAINS:			addRange = true;
+				case CONTAINS:
+				case COINCIDES:
+				case LOWCONTAINS:
+				case HIGHCONTAINS:		addRange = true;
 										break;
 				case HIGHINTERSECTS:	range.a = lowKey.a;
 										addRange = true;
@@ -125,7 +127,10 @@ public class MemRange implements MinGettable<IntegerRange> {
 				
 				switch (range.relationTo(lowKey))
 				{
-				case CONTAINS:			addRange = true;
+				case CONTAINS:
+				case COINCIDES:
+				case LOWCONTAINS:
+				case HIGHCONTAINS:		addRange = true;
 										break;
 				case HIGHINTERSECTS:	rangesMap.put(newLow, lowVal);
 										addRange = true;
@@ -133,7 +138,7 @@ public class MemRange implements MinGettable<IntegerRange> {
 				case LOWINTERSECTS:		throw new Error("Impossible range relation occured.");
 				
 				case ISCONTAINED:		rangesMap.put(newLow, lowVal);
-										rangesMap.put(newUpperLow, highVal);
+										rangesMap.put(newUpperLow, lowVal);
 										addRange = true;
 										break;
 				case ISDISJOINTTO:		rangesMap.put(lowKey, lowVal);
@@ -158,7 +163,10 @@ public class MemRange implements MinGettable<IntegerRange> {
 			{
 				switch (range.relationTo(highKey))
 				{
-				case CONTAINS:			addRange = true;							//highKey pode ser diferente de lowKey
+				case CONTAINS:
+				case COINCIDES:
+				case LOWCONTAINS:
+				case HIGHCONTAINS:		addRange = true;							//highKey pode ser diferente de lowKey
 										break;
 				case HIGHINTERSECTS:												//lowKey existe e já foi adicionada
 										break;
@@ -182,7 +190,10 @@ public class MemRange implements MinGettable<IntegerRange> {
 				
 				switch (range.relationTo(highKey))
 				{
-				case CONTAINS:			addRange = true;							//highKey é sobrescrita
+				case CONTAINS:
+				case COINCIDES:
+				case LOWCONTAINS:
+				case HIGHCONTAINS:		addRange = true;							//highKey é sobrescrita
 										break;
 				case HIGHINTERSECTS:	addRange = true;							//highKey = lowKey já foi tratada
 										break;
@@ -391,7 +402,7 @@ public class MemRange implements MinGettable<IntegerRange> {
 		//teste1();
 		//teste2();
 		//teste3();
-		//testRandomAdd(100);
-		testRandomAddWithCoalescing(100);
+		testRandomAdd(100);
+		//testRandomAddWithCoalescing(100);
 	}
 }

@@ -90,11 +90,13 @@ public class Call implements Cloneable{
 		procedureName = name;
 	}
 	
+	@Deprecated
 	public MemRange getWrites()
 	{
 		return new MemRange(writes);
 	}
 	
+	@Deprecated
 	public MemRange getReads()
 	{
 		return new MemRange(reads);

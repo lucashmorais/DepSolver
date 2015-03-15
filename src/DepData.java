@@ -214,9 +214,9 @@ public class DepData {
 		for (Call c: calls)
 		{
 			c.addRAW(writes.intersects(c.reads));
-			reads.add(c.reads);						//Adds reads
-			c.addWAW(writes.add(c.writes));			//Adds writes
-			c.addWAR(reads.intersects(c.writes));			
+			c.addWAW(writes.add(c.writes));	
+			c.addWAR(reads.intersects(c.writes));
+			reads.add(c.reads);
 		}
 		
 		buildCompleteDepGraph();
