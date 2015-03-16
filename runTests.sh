@@ -45,12 +45,32 @@ then
 	mkdir executions
 fi
 
-for i in $( seq 1 3 )
+for i in $( seq 1 7 )
 	do
 		./lu $i > ./executions/e-$i
 	done
 
 #Section for generating the dependency graph for each of the inputs
+cd $benchmarksDir/$choleskyDir
+echo $( pwd )
+for i in $( ls executions )
+	do
+		java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i executions/$i -m -cf \
+		-O graphs/$i-FALSE.png -h histograms/$i-FALSE.png 
+		java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i executions/$i -m -ct \
+		-Ot graphs/$i-TRUE -h histograms/$i-TRUE.png
+
+	done
+
+cd $benchmarksDir/$matmulDir
+echo $( pwd )
+for i in $( ls executions )
+	do
+		java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i executions/$i -m -cf \
+		-O graphs/$i-FALSE.png -h histograms/$i-FALSE.png 
+                java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i executions/$i -m -ct \
+		-Ot graphs/$i-TRUE -h histograms/$i-TRUE.png
+	done
 
 cd $benchmarksDir/$luDir
 echo $( pwd )
@@ -58,5 +78,7 @@ for i in $( ls executions )
         do
 	        java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i executions/$i -m -cf \
 	        -O graphs/$i-FALSE.png -h histograms/$i-FALSE.png
+		java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i executions/$i -m -ct \
+		-Ot graphs/$i-TRUE -h histograms/$i-TRUE.png
 	done
 

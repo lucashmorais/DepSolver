@@ -1,0 +1,3134 @@
+/home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky
+/home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul
+/home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu
+/home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky
+executions/e-1-1
+>> Listing of all parsed calls (1 in total):
+	spotrf_tile_0
+>> Dependency metrics (0 in total):
+	Number of effective false dependencies:	0	(�)
+	Number of true dependencies:		0	(�)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-1-FALSE.png]
+executions/e-1-1
+>> Listing of all parsed calls (1 in total):
+	spotrf_tile_0
+>> Dependency metrics (0 in total):
+	Number of effective false dependencies:	0	(�)
+	Number of true dependencies:		0	(�)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-1-TRUE]
+executions/e-1-2
+>> Listing of all parsed calls (4 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	ssyrk_tile_2
+	spotrf_tile_3
+>> Dependency metrics (3 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		3	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-2-FALSE.png]
+executions/e-1-2
+>> Listing of all parsed calls (4 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	ssyrk_tile_2
+	spotrf_tile_3
+>> Dependency metrics (3 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		3	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-2-TRUE]
+executions/e-1-3
+>> Listing of all parsed calls (10 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	strsm_tile_2
+	sgemm_tile_3
+	ssyrk_tile_4
+	spotrf_tile_5
+	strsm_tile_6
+	ssyrk_tile_7
+	ssyrk_tile_8
+	spotrf_tile_9
+>> Dependency metrics (12 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		12	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-3-FALSE.png]
+executions/e-1-3
+>> Listing of all parsed calls (10 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	strsm_tile_2
+	sgemm_tile_3
+	ssyrk_tile_4
+	spotrf_tile_5
+	strsm_tile_6
+	ssyrk_tile_7
+	ssyrk_tile_8
+	spotrf_tile_9
+>> Dependency metrics (12 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		12	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-3-TRUE]
+executions/e-1-4
+>> Listing of all parsed calls (20 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	strsm_tile_2
+	strsm_tile_3
+	sgemm_tile_4
+	sgemm_tile_5
+	ssyrk_tile_6
+	spotrf_tile_7
+	strsm_tile_8
+	strsm_tile_9
+	sgemm_tile_10
+	sgemm_tile_11
+	ssyrk_tile_12
+	ssyrk_tile_13
+	spotrf_tile_14
+	strsm_tile_15
+	ssyrk_tile_16
+	ssyrk_tile_17
+	ssyrk_tile_18
+	spotrf_tile_19
+>> Dependency metrics (30 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		30	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-4-FALSE.png]
+executions/e-1-4
+>> Listing of all parsed calls (20 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	strsm_tile_2
+	strsm_tile_3
+	sgemm_tile_4
+	sgemm_tile_5
+	ssyrk_tile_6
+	spotrf_tile_7
+	strsm_tile_8
+	strsm_tile_9
+	sgemm_tile_10
+	sgemm_tile_11
+	ssyrk_tile_12
+	ssyrk_tile_13
+	spotrf_tile_14
+	strsm_tile_15
+	ssyrk_tile_16
+	ssyrk_tile_17
+	ssyrk_tile_18
+	spotrf_tile_19
+>> Dependency metrics (30 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		30	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-4-TRUE]
+executions/e-1-5
+>> Listing of all parsed calls (35 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	strsm_tile_2
+	strsm_tile_3
+	strsm_tile_4
+	sgemm_tile_5
+	sgemm_tile_6
+	sgemm_tile_7
+	ssyrk_tile_8
+	spotrf_tile_9
+	strsm_tile_10
+	strsm_tile_11
+	strsm_tile_12
+	sgemm_tile_13
+	sgemm_tile_14
+	sgemm_tile_15
+	sgemm_tile_16
+	ssyrk_tile_17
+	ssyrk_tile_18
+	spotrf_tile_19
+	strsm_tile_20
+	strsm_tile_21
+	sgemm_tile_22
+	sgemm_tile_23
+	sgemm_tile_24
+	ssyrk_tile_25
+	ssyrk_tile_26
+	ssyrk_tile_27
+	spotrf_tile_28
+	strsm_tile_29
+	ssyrk_tile_30
+	ssyrk_tile_31
+	ssyrk_tile_32
+	ssyrk_tile_33
+	spotrf_tile_34
+>> Dependency metrics (60 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		60	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-5-FALSE.png]
+executions/e-1-5
+>> Listing of all parsed calls (35 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	strsm_tile_2
+	strsm_tile_3
+	strsm_tile_4
+	sgemm_tile_5
+	sgemm_tile_6
+	sgemm_tile_7
+	ssyrk_tile_8
+	spotrf_tile_9
+	strsm_tile_10
+	strsm_tile_11
+	strsm_tile_12
+	sgemm_tile_13
+	sgemm_tile_14
+	sgemm_tile_15
+	sgemm_tile_16
+	ssyrk_tile_17
+	ssyrk_tile_18
+	spotrf_tile_19
+	strsm_tile_20
+	strsm_tile_21
+	sgemm_tile_22
+	sgemm_tile_23
+	sgemm_tile_24
+	ssyrk_tile_25
+	ssyrk_tile_26
+	ssyrk_tile_27
+	spotrf_tile_28
+	strsm_tile_29
+	ssyrk_tile_30
+	ssyrk_tile_31
+	ssyrk_tile_32
+	ssyrk_tile_33
+	spotrf_tile_34
+>> Dependency metrics (60 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		60	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-5-TRUE]
+executions/e-1-6
+>> Listing of all parsed calls (56 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	strsm_tile_2
+	strsm_tile_3
+	strsm_tile_4
+	strsm_tile_5
+	sgemm_tile_6
+	sgemm_tile_7
+	sgemm_tile_8
+	sgemm_tile_9
+	ssyrk_tile_10
+	spotrf_tile_11
+	strsm_tile_12
+	strsm_tile_13
+	strsm_tile_14
+	strsm_tile_15
+	sgemm_tile_16
+	sgemm_tile_17
+	sgemm_tile_18
+	sgemm_tile_19
+	sgemm_tile_20
+	sgemm_tile_21
+	ssyrk_tile_22
+	ssyrk_tile_23
+	spotrf_tile_24
+	strsm_tile_25
+	strsm_tile_26
+	strsm_tile_27
+	sgemm_tile_28
+	sgemm_tile_29
+	sgemm_tile_30
+	sgemm_tile_31
+	sgemm_tile_32
+	sgemm_tile_33
+	ssyrk_tile_34
+	ssyrk_tile_35
+	ssyrk_tile_36
+	spotrf_tile_37
+	strsm_tile_38
+	strsm_tile_39
+	sgemm_tile_40
+	sgemm_tile_41
+	sgemm_tile_42
+	sgemm_tile_43
+	ssyrk_tile_44
+	ssyrk_tile_45
+	ssyrk_tile_46
+	ssyrk_tile_47
+	spotrf_tile_48
+	strsm_tile_49
+	ssyrk_tile_50
+	ssyrk_tile_51
+	ssyrk_tile_52
+	ssyrk_tile_53
+	ssyrk_tile_54
+	spotrf_tile_55
+>> Dependency metrics (105 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		105	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-6-FALSE.png]
+executions/e-1-6
+>> Listing of all parsed calls (56 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	strsm_tile_2
+	strsm_tile_3
+	strsm_tile_4
+	strsm_tile_5
+	sgemm_tile_6
+	sgemm_tile_7
+	sgemm_tile_8
+	sgemm_tile_9
+	ssyrk_tile_10
+	spotrf_tile_11
+	strsm_tile_12
+	strsm_tile_13
+	strsm_tile_14
+	strsm_tile_15
+	sgemm_tile_16
+	sgemm_tile_17
+	sgemm_tile_18
+	sgemm_tile_19
+	sgemm_tile_20
+	sgemm_tile_21
+	ssyrk_tile_22
+	ssyrk_tile_23
+	spotrf_tile_24
+	strsm_tile_25
+	strsm_tile_26
+	strsm_tile_27
+	sgemm_tile_28
+	sgemm_tile_29
+	sgemm_tile_30
+	sgemm_tile_31
+	sgemm_tile_32
+	sgemm_tile_33
+	ssyrk_tile_34
+	ssyrk_tile_35
+	ssyrk_tile_36
+	spotrf_tile_37
+	strsm_tile_38
+	strsm_tile_39
+	sgemm_tile_40
+	sgemm_tile_41
+	sgemm_tile_42
+	sgemm_tile_43
+	ssyrk_tile_44
+	ssyrk_tile_45
+	ssyrk_tile_46
+	ssyrk_tile_47
+	spotrf_tile_48
+	strsm_tile_49
+	ssyrk_tile_50
+	ssyrk_tile_51
+	ssyrk_tile_52
+	ssyrk_tile_53
+	ssyrk_tile_54
+	spotrf_tile_55
+>> Dependency metrics (105 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		105	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-6-TRUE]
+executions/e-1-7
+>> Listing of all parsed calls (84 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	strsm_tile_2
+	strsm_tile_3
+	strsm_tile_4
+	strsm_tile_5
+	strsm_tile_6
+	sgemm_tile_7
+	sgemm_tile_8
+	sgemm_tile_9
+	sgemm_tile_10
+	sgemm_tile_11
+	ssyrk_tile_12
+	spotrf_tile_13
+	strsm_tile_14
+	strsm_tile_15
+	strsm_tile_16
+	strsm_tile_17
+	strsm_tile_18
+	sgemm_tile_19
+	sgemm_tile_20
+	sgemm_tile_21
+	sgemm_tile_22
+	sgemm_tile_23
+	sgemm_tile_24
+	sgemm_tile_25
+	sgemm_tile_26
+	ssyrk_tile_27
+	ssyrk_tile_28
+	spotrf_tile_29
+	strsm_tile_30
+	strsm_tile_31
+	strsm_tile_32
+	strsm_tile_33
+	sgemm_tile_34
+	sgemm_tile_35
+	sgemm_tile_36
+	sgemm_tile_37
+	sgemm_tile_38
+	sgemm_tile_39
+	sgemm_tile_40
+	sgemm_tile_41
+	sgemm_tile_42
+	ssyrk_tile_43
+	ssyrk_tile_44
+	ssyrk_tile_45
+	spotrf_tile_46
+	strsm_tile_47
+	strsm_tile_48
+	strsm_tile_49
+	sgemm_tile_50
+	sgemm_tile_51
+	sgemm_tile_52
+	sgemm_tile_53
+	sgemm_tile_54
+	sgemm_tile_55
+	sgemm_tile_56
+	sgemm_tile_57
+	ssyrk_tile_58
+	ssyrk_tile_59
+	ssyrk_tile_60
+	ssyrk_tile_61
+	spotrf_tile_62
+	strsm_tile_63
+	strsm_tile_64
+	sgemm_tile_65
+	sgemm_tile_66
+	sgemm_tile_67
+	sgemm_tile_68
+	sgemm_tile_69
+	ssyrk_tile_70
+	ssyrk_tile_71
+	ssyrk_tile_72
+	ssyrk_tile_73
+	ssyrk_tile_74
+	spotrf_tile_75
+	strsm_tile_76
+	ssyrk_tile_77
+	ssyrk_tile_78
+	ssyrk_tile_79
+	ssyrk_tile_80
+	ssyrk_tile_81
+	ssyrk_tile_82
+	spotrf_tile_83
+>> Dependency metrics (168 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		168	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-7-FALSE.png]
+executions/e-1-7
+>> Listing of all parsed calls (84 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	strsm_tile_2
+	strsm_tile_3
+	strsm_tile_4
+	strsm_tile_5
+	strsm_tile_6
+	sgemm_tile_7
+	sgemm_tile_8
+	sgemm_tile_9
+	sgemm_tile_10
+	sgemm_tile_11
+	ssyrk_tile_12
+	spotrf_tile_13
+	strsm_tile_14
+	strsm_tile_15
+	strsm_tile_16
+	strsm_tile_17
+	strsm_tile_18
+	sgemm_tile_19
+	sgemm_tile_20
+	sgemm_tile_21
+	sgemm_tile_22
+	sgemm_tile_23
+	sgemm_tile_24
+	sgemm_tile_25
+	sgemm_tile_26
+	ssyrk_tile_27
+	ssyrk_tile_28
+	spotrf_tile_29
+	strsm_tile_30
+	strsm_tile_31
+	strsm_tile_32
+	strsm_tile_33
+	sgemm_tile_34
+	sgemm_tile_35
+	sgemm_tile_36
+	sgemm_tile_37
+	sgemm_tile_38
+	sgemm_tile_39
+	sgemm_tile_40
+	sgemm_tile_41
+	sgemm_tile_42
+	ssyrk_tile_43
+	ssyrk_tile_44
+	ssyrk_tile_45
+	spotrf_tile_46
+	strsm_tile_47
+	strsm_tile_48
+	strsm_tile_49
+	sgemm_tile_50
+	sgemm_tile_51
+	sgemm_tile_52
+	sgemm_tile_53
+	sgemm_tile_54
+	sgemm_tile_55
+	sgemm_tile_56
+	sgemm_tile_57
+	ssyrk_tile_58
+	ssyrk_tile_59
+	ssyrk_tile_60
+	ssyrk_tile_61
+	spotrf_tile_62
+	strsm_tile_63
+	strsm_tile_64
+	sgemm_tile_65
+	sgemm_tile_66
+	sgemm_tile_67
+	sgemm_tile_68
+	sgemm_tile_69
+	ssyrk_tile_70
+	ssyrk_tile_71
+	ssyrk_tile_72
+	ssyrk_tile_73
+	ssyrk_tile_74
+	spotrf_tile_75
+	strsm_tile_76
+	ssyrk_tile_77
+	ssyrk_tile_78
+	ssyrk_tile_79
+	ssyrk_tile_80
+	ssyrk_tile_81
+	ssyrk_tile_82
+	spotrf_tile_83
+>> Dependency metrics (168 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		168	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-7-TRUE]
+executions/e-1-8
+>> Listing of all parsed calls (120 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	strsm_tile_2
+	strsm_tile_3
+	strsm_tile_4
+	strsm_tile_5
+	strsm_tile_6
+	strsm_tile_7
+	sgemm_tile_8
+	sgemm_tile_9
+	sgemm_tile_10
+	sgemm_tile_11
+	sgemm_tile_12
+	sgemm_tile_13
+	ssyrk_tile_14
+	spotrf_tile_15
+	strsm_tile_16
+	strsm_tile_17
+	strsm_tile_18
+	strsm_tile_19
+	strsm_tile_20
+	strsm_tile_21
+	sgemm_tile_22
+	sgemm_tile_23
+	sgemm_tile_24
+	sgemm_tile_25
+	sgemm_tile_26
+	sgemm_tile_27
+	sgemm_tile_28
+	sgemm_tile_29
+	sgemm_tile_30
+	sgemm_tile_31
+	ssyrk_tile_32
+	ssyrk_tile_33
+	spotrf_tile_34
+	strsm_tile_35
+	strsm_tile_36
+	strsm_tile_37
+	strsm_tile_38
+	strsm_tile_39
+	sgemm_tile_40
+	sgemm_tile_41
+	sgemm_tile_42
+	sgemm_tile_43
+	sgemm_tile_44
+	sgemm_tile_45
+	sgemm_tile_46
+	sgemm_tile_47
+	sgemm_tile_48
+	sgemm_tile_49
+	sgemm_tile_50
+	sgemm_tile_51
+	ssyrk_tile_52
+	ssyrk_tile_53
+	ssyrk_tile_54
+	spotrf_tile_55
+	strsm_tile_56
+	strsm_tile_57
+	strsm_tile_58
+	strsm_tile_59
+	sgemm_tile_60
+	sgemm_tile_61
+	sgemm_tile_62
+	sgemm_tile_63
+	sgemm_tile_64
+	sgemm_tile_65
+	sgemm_tile_66
+	sgemm_tile_67
+	sgemm_tile_68
+	sgemm_tile_69
+	sgemm_tile_70
+	sgemm_tile_71
+	ssyrk_tile_72
+	ssyrk_tile_73
+	ssyrk_tile_74
+	ssyrk_tile_75
+	spotrf_tile_76
+	strsm_tile_77
+	strsm_tile_78
+	strsm_tile_79
+	sgemm_tile_80
+	sgemm_tile_81
+	sgemm_tile_82
+	sgemm_tile_83
+	sgemm_tile_84
+	sgemm_tile_85
+	sgemm_tile_86
+	sgemm_tile_87
+	sgemm_tile_88
+	sgemm_tile_89
+	ssyrk_tile_90
+	ssyrk_tile_91
+	ssyrk_tile_92
+	ssyrk_tile_93
+	ssyrk_tile_94
+	spotrf_tile_95
+	strsm_tile_96
+	strsm_tile_97
+	sgemm_tile_98
+	sgemm_tile_99
+	sgemm_tile_100
+	sgemm_tile_101
+	sgemm_tile_102
+	sgemm_tile_103
+	ssyrk_tile_104
+	ssyrk_tile_105
+	ssyrk_tile_106
+	ssyrk_tile_107
+	ssyrk_tile_108
+	ssyrk_tile_109
+	spotrf_tile_110
+	strsm_tile_111
+	ssyrk_tile_112
+	ssyrk_tile_113
+	ssyrk_tile_114
+	ssyrk_tile_115
+	ssyrk_tile_116
+	ssyrk_tile_117
+	ssyrk_tile_118
+	spotrf_tile_119
+>> Dependency metrics (252 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		252	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-8-FALSE.png]
+executions/e-1-8
+>> Listing of all parsed calls (120 in total):
+	spotrf_tile_0
+	strsm_tile_1
+	strsm_tile_2
+	strsm_tile_3
+	strsm_tile_4
+	strsm_tile_5
+	strsm_tile_6
+	strsm_tile_7
+	sgemm_tile_8
+	sgemm_tile_9
+	sgemm_tile_10
+	sgemm_tile_11
+	sgemm_tile_12
+	sgemm_tile_13
+	ssyrk_tile_14
+	spotrf_tile_15
+	strsm_tile_16
+	strsm_tile_17
+	strsm_tile_18
+	strsm_tile_19
+	strsm_tile_20
+	strsm_tile_21
+	sgemm_tile_22
+	sgemm_tile_23
+	sgemm_tile_24
+	sgemm_tile_25
+	sgemm_tile_26
+	sgemm_tile_27
+	sgemm_tile_28
+	sgemm_tile_29
+	sgemm_tile_30
+	sgemm_tile_31
+	ssyrk_tile_32
+	ssyrk_tile_33
+	spotrf_tile_34
+	strsm_tile_35
+	strsm_tile_36
+	strsm_tile_37
+	strsm_tile_38
+	strsm_tile_39
+	sgemm_tile_40
+	sgemm_tile_41
+	sgemm_tile_42
+	sgemm_tile_43
+	sgemm_tile_44
+	sgemm_tile_45
+	sgemm_tile_46
+	sgemm_tile_47
+	sgemm_tile_48
+	sgemm_tile_49
+	sgemm_tile_50
+	sgemm_tile_51
+	ssyrk_tile_52
+	ssyrk_tile_53
+	ssyrk_tile_54
+	spotrf_tile_55
+	strsm_tile_56
+	strsm_tile_57
+	strsm_tile_58
+	strsm_tile_59
+	sgemm_tile_60
+	sgemm_tile_61
+	sgemm_tile_62
+	sgemm_tile_63
+	sgemm_tile_64
+	sgemm_tile_65
+	sgemm_tile_66
+	sgemm_tile_67
+	sgemm_tile_68
+	sgemm_tile_69
+	sgemm_tile_70
+	sgemm_tile_71
+	ssyrk_tile_72
+	ssyrk_tile_73
+	ssyrk_tile_74
+	ssyrk_tile_75
+	spotrf_tile_76
+	strsm_tile_77
+	strsm_tile_78
+	strsm_tile_79
+	sgemm_tile_80
+	sgemm_tile_81
+	sgemm_tile_82
+	sgemm_tile_83
+	sgemm_tile_84
+	sgemm_tile_85
+	sgemm_tile_86
+	sgemm_tile_87
+	sgemm_tile_88
+	sgemm_tile_89
+	ssyrk_tile_90
+	ssyrk_tile_91
+	ssyrk_tile_92
+	ssyrk_tile_93
+	ssyrk_tile_94
+	spotrf_tile_95
+	strsm_tile_96
+	strsm_tile_97
+	sgemm_tile_98
+	sgemm_tile_99
+	sgemm_tile_100
+	sgemm_tile_101
+	sgemm_tile_102
+	sgemm_tile_103
+	ssyrk_tile_104
+	ssyrk_tile_105
+	ssyrk_tile_106
+	ssyrk_tile_107
+	ssyrk_tile_108
+	ssyrk_tile_109
+	spotrf_tile_110
+	strsm_tile_111
+	ssyrk_tile_112
+	ssyrk_tile_113
+	ssyrk_tile_114
+	ssyrk_tile_115
+	ssyrk_tile_116
+	ssyrk_tile_117
+	ssyrk_tile_118
+	spotrf_tile_119
+>> Dependency metrics (252 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		252	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/cholesky/.dotswap, -Tpng, -o, graphs/e-1-8-TRUE]
+/home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul
+executions/e-1
+>> Listing of all parsed calls (1 in total):
+	matmul_0
+>> Dependency metrics (0 in total):
+	Number of effective false dependencies:	0	(�)
+	Number of true dependencies:		0	(�)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-1-FALSE.png]
+executions/e-1
+>> Listing of all parsed calls (1 in total):
+	matmul_0
+>> Dependency metrics (0 in total):
+	Number of effective false dependencies:	0	(�)
+	Number of true dependencies:		0	(�)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-1-TRUE]
+executions/e-2
+>> Listing of all parsed calls (8 in total):
+	matmul_0
+	matmul_1
+	matmul_2
+	matmul_3
+	matmul_4
+	matmul_5
+	matmul_6
+	matmul_7
+>> Dependency metrics (4 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		4	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-2-FALSE.png]
+executions/e-2
+>> Listing of all parsed calls (8 in total):
+	matmul_0
+	matmul_1
+	matmul_2
+	matmul_3
+	matmul_4
+	matmul_5
+	matmul_6
+	matmul_7
+>> Dependency metrics (4 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		4	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-2-TRUE]
+executions/e-3
+>> Listing of all parsed calls (27 in total):
+	matmul_0
+	matmul_1
+	matmul_2
+	matmul_3
+	matmul_4
+	matmul_5
+	matmul_6
+	matmul_7
+	matmul_8
+	matmul_9
+	matmul_10
+	matmul_11
+	matmul_12
+	matmul_13
+	matmul_14
+	matmul_15
+	matmul_16
+	matmul_17
+	matmul_18
+	matmul_19
+	matmul_20
+	matmul_21
+	matmul_22
+	matmul_23
+	matmul_24
+	matmul_25
+	matmul_26
+>> Dependency metrics (18 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		18	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-3-FALSE.png]
+executions/e-3
+>> Listing of all parsed calls (27 in total):
+	matmul_0
+	matmul_1
+	matmul_2
+	matmul_3
+	matmul_4
+	matmul_5
+	matmul_6
+	matmul_7
+	matmul_8
+	matmul_9
+	matmul_10
+	matmul_11
+	matmul_12
+	matmul_13
+	matmul_14
+	matmul_15
+	matmul_16
+	matmul_17
+	matmul_18
+	matmul_19
+	matmul_20
+	matmul_21
+	matmul_22
+	matmul_23
+	matmul_24
+	matmul_25
+	matmul_26
+>> Dependency metrics (18 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		18	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-3-TRUE]
+executions/e-4
+>> Listing of all parsed calls (64 in total):
+	matmul_0
+	matmul_1
+	matmul_2
+	matmul_3
+	matmul_4
+	matmul_5
+	matmul_6
+	matmul_7
+	matmul_8
+	matmul_9
+	matmul_10
+	matmul_11
+	matmul_12
+	matmul_13
+	matmul_14
+	matmul_15
+	matmul_16
+	matmul_17
+	matmul_18
+	matmul_19
+	matmul_20
+	matmul_21
+	matmul_22
+	matmul_23
+	matmul_24
+	matmul_25
+	matmul_26
+	matmul_27
+	matmul_28
+	matmul_29
+	matmul_30
+	matmul_31
+	matmul_32
+	matmul_33
+	matmul_34
+	matmul_35
+	matmul_36
+	matmul_37
+	matmul_38
+	matmul_39
+	matmul_40
+	matmul_41
+	matmul_42
+	matmul_43
+	matmul_44
+	matmul_45
+	matmul_46
+	matmul_47
+	matmul_48
+	matmul_49
+	matmul_50
+	matmul_51
+	matmul_52
+	matmul_53
+	matmul_54
+	matmul_55
+	matmul_56
+	matmul_57
+	matmul_58
+	matmul_59
+	matmul_60
+	matmul_61
+	matmul_62
+	matmul_63
+>> Dependency metrics (48 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		48	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-4-FALSE.png]
+executions/e-4
+>> Listing of all parsed calls (64 in total):
+	matmul_0
+	matmul_1
+	matmul_2
+	matmul_3
+	matmul_4
+	matmul_5
+	matmul_6
+	matmul_7
+	matmul_8
+	matmul_9
+	matmul_10
+	matmul_11
+	matmul_12
+	matmul_13
+	matmul_14
+	matmul_15
+	matmul_16
+	matmul_17
+	matmul_18
+	matmul_19
+	matmul_20
+	matmul_21
+	matmul_22
+	matmul_23
+	matmul_24
+	matmul_25
+	matmul_26
+	matmul_27
+	matmul_28
+	matmul_29
+	matmul_30
+	matmul_31
+	matmul_32
+	matmul_33
+	matmul_34
+	matmul_35
+	matmul_36
+	matmul_37
+	matmul_38
+	matmul_39
+	matmul_40
+	matmul_41
+	matmul_42
+	matmul_43
+	matmul_44
+	matmul_45
+	matmul_46
+	matmul_47
+	matmul_48
+	matmul_49
+	matmul_50
+	matmul_51
+	matmul_52
+	matmul_53
+	matmul_54
+	matmul_55
+	matmul_56
+	matmul_57
+	matmul_58
+	matmul_59
+	matmul_60
+	matmul_61
+	matmul_62
+	matmul_63
+>> Dependency metrics (48 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		48	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-4-TRUE]
+executions/e-5
+>> Listing of all parsed calls (125 in total):
+	matmul_0
+	matmul_1
+	matmul_2
+	matmul_3
+	matmul_4
+	matmul_5
+	matmul_6
+	matmul_7
+	matmul_8
+	matmul_9
+	matmul_10
+	matmul_11
+	matmul_12
+	matmul_13
+	matmul_14
+	matmul_15
+	matmul_16
+	matmul_17
+	matmul_18
+	matmul_19
+	matmul_20
+	matmul_21
+	matmul_22
+	matmul_23
+	matmul_24
+	matmul_25
+	matmul_26
+	matmul_27
+	matmul_28
+	matmul_29
+	matmul_30
+	matmul_31
+	matmul_32
+	matmul_33
+	matmul_34
+	matmul_35
+	matmul_36
+	matmul_37
+	matmul_38
+	matmul_39
+	matmul_40
+	matmul_41
+	matmul_42
+	matmul_43
+	matmul_44
+	matmul_45
+	matmul_46
+	matmul_47
+	matmul_48
+	matmul_49
+	matmul_50
+	matmul_51
+	matmul_52
+	matmul_53
+	matmul_54
+	matmul_55
+	matmul_56
+	matmul_57
+	matmul_58
+	matmul_59
+	matmul_60
+	matmul_61
+	matmul_62
+	matmul_63
+	matmul_64
+	matmul_65
+	matmul_66
+	matmul_67
+	matmul_68
+	matmul_69
+	matmul_70
+	matmul_71
+	matmul_72
+	matmul_73
+	matmul_74
+	matmul_75
+	matmul_76
+	matmul_77
+	matmul_78
+	matmul_79
+	matmul_80
+	matmul_81
+	matmul_82
+	matmul_83
+	matmul_84
+	matmul_85
+	matmul_86
+	matmul_87
+	matmul_88
+	matmul_89
+	matmul_90
+	matmul_91
+	matmul_92
+	matmul_93
+	matmul_94
+	matmul_95
+	matmul_96
+	matmul_97
+	matmul_98
+	matmul_99
+	matmul_100
+	matmul_101
+	matmul_102
+	matmul_103
+	matmul_104
+	matmul_105
+	matmul_106
+	matmul_107
+	matmul_108
+	matmul_109
+	matmul_110
+	matmul_111
+	matmul_112
+	matmul_113
+	matmul_114
+	matmul_115
+	matmul_116
+	matmul_117
+	matmul_118
+	matmul_119
+	matmul_120
+	matmul_121
+	matmul_122
+	matmul_123
+	matmul_124
+>> Dependency metrics (100 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		100	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-5-FALSE.png]
+executions/e-5
+>> Listing of all parsed calls (125 in total):
+	matmul_0
+	matmul_1
+	matmul_2
+	matmul_3
+	matmul_4
+	matmul_5
+	matmul_6
+	matmul_7
+	matmul_8
+	matmul_9
+	matmul_10
+	matmul_11
+	matmul_12
+	matmul_13
+	matmul_14
+	matmul_15
+	matmul_16
+	matmul_17
+	matmul_18
+	matmul_19
+	matmul_20
+	matmul_21
+	matmul_22
+	matmul_23
+	matmul_24
+	matmul_25
+	matmul_26
+	matmul_27
+	matmul_28
+	matmul_29
+	matmul_30
+	matmul_31
+	matmul_32
+	matmul_33
+	matmul_34
+	matmul_35
+	matmul_36
+	matmul_37
+	matmul_38
+	matmul_39
+	matmul_40
+	matmul_41
+	matmul_42
+	matmul_43
+	matmul_44
+	matmul_45
+	matmul_46
+	matmul_47
+	matmul_48
+	matmul_49
+	matmul_50
+	matmul_51
+	matmul_52
+	matmul_53
+	matmul_54
+	matmul_55
+	matmul_56
+	matmul_57
+	matmul_58
+	matmul_59
+	matmul_60
+	matmul_61
+	matmul_62
+	matmul_63
+	matmul_64
+	matmul_65
+	matmul_66
+	matmul_67
+	matmul_68
+	matmul_69
+	matmul_70
+	matmul_71
+	matmul_72
+	matmul_73
+	matmul_74
+	matmul_75
+	matmul_76
+	matmul_77
+	matmul_78
+	matmul_79
+	matmul_80
+	matmul_81
+	matmul_82
+	matmul_83
+	matmul_84
+	matmul_85
+	matmul_86
+	matmul_87
+	matmul_88
+	matmul_89
+	matmul_90
+	matmul_91
+	matmul_92
+	matmul_93
+	matmul_94
+	matmul_95
+	matmul_96
+	matmul_97
+	matmul_98
+	matmul_99
+	matmul_100
+	matmul_101
+	matmul_102
+	matmul_103
+	matmul_104
+	matmul_105
+	matmul_106
+	matmul_107
+	matmul_108
+	matmul_109
+	matmul_110
+	matmul_111
+	matmul_112
+	matmul_113
+	matmul_114
+	matmul_115
+	matmul_116
+	matmul_117
+	matmul_118
+	matmul_119
+	matmul_120
+	matmul_121
+	matmul_122
+	matmul_123
+	matmul_124
+>> Dependency metrics (100 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		100	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-5-TRUE]
+executions/e-6
+>> Listing of all parsed calls (216 in total):
+	matmul_0
+	matmul_1
+	matmul_2
+	matmul_3
+	matmul_4
+	matmul_5
+	matmul_6
+	matmul_7
+	matmul_8
+	matmul_9
+	matmul_10
+	matmul_11
+	matmul_12
+	matmul_13
+	matmul_14
+	matmul_15
+	matmul_16
+	matmul_17
+	matmul_18
+	matmul_19
+	matmul_20
+	matmul_21
+	matmul_22
+	matmul_23
+	matmul_24
+	matmul_25
+	matmul_26
+	matmul_27
+	matmul_28
+	matmul_29
+	matmul_30
+	matmul_31
+	matmul_32
+	matmul_33
+	matmul_34
+	matmul_35
+	matmul_36
+	matmul_37
+	matmul_38
+	matmul_39
+	matmul_40
+	matmul_41
+	matmul_42
+	matmul_43
+	matmul_44
+	matmul_45
+	matmul_46
+	matmul_47
+	matmul_48
+	matmul_49
+	matmul_50
+	matmul_51
+	matmul_52
+	matmul_53
+	matmul_54
+	matmul_55
+	matmul_56
+	matmul_57
+	matmul_58
+	matmul_59
+	matmul_60
+	matmul_61
+	matmul_62
+	matmul_63
+	matmul_64
+	matmul_65
+	matmul_66
+	matmul_67
+	matmul_68
+	matmul_69
+	matmul_70
+	matmul_71
+	matmul_72
+	matmul_73
+	matmul_74
+	matmul_75
+	matmul_76
+	matmul_77
+	matmul_78
+	matmul_79
+	matmul_80
+	matmul_81
+	matmul_82
+	matmul_83
+	matmul_84
+	matmul_85
+	matmul_86
+	matmul_87
+	matmul_88
+	matmul_89
+	matmul_90
+	matmul_91
+	matmul_92
+	matmul_93
+	matmul_94
+	matmul_95
+	matmul_96
+	matmul_97
+	matmul_98
+	matmul_99
+	matmul_100
+	matmul_101
+	matmul_102
+	matmul_103
+	matmul_104
+	matmul_105
+	matmul_106
+	matmul_107
+	matmul_108
+	matmul_109
+	matmul_110
+	matmul_111
+	matmul_112
+	matmul_113
+	matmul_114
+	matmul_115
+	matmul_116
+	matmul_117
+	matmul_118
+	matmul_119
+	matmul_120
+	matmul_121
+	matmul_122
+	matmul_123
+	matmul_124
+	matmul_125
+	matmul_126
+	matmul_127
+	matmul_128
+	matmul_129
+	matmul_130
+	matmul_131
+	matmul_132
+	matmul_133
+	matmul_134
+	matmul_135
+	matmul_136
+	matmul_137
+	matmul_138
+	matmul_139
+	matmul_140
+	matmul_141
+	matmul_142
+	matmul_143
+	matmul_144
+	matmul_145
+	matmul_146
+	matmul_147
+	matmul_148
+	matmul_149
+	matmul_150
+	matmul_151
+	matmul_152
+	matmul_153
+	matmul_154
+	matmul_155
+	matmul_156
+	matmul_157
+	matmul_158
+	matmul_159
+	matmul_160
+	matmul_161
+	matmul_162
+	matmul_163
+	matmul_164
+	matmul_165
+	matmul_166
+	matmul_167
+	matmul_168
+	matmul_169
+	matmul_170
+	matmul_171
+	matmul_172
+	matmul_173
+	matmul_174
+	matmul_175
+	matmul_176
+	matmul_177
+	matmul_178
+	matmul_179
+	matmul_180
+	matmul_181
+	matmul_182
+	matmul_183
+	matmul_184
+	matmul_185
+	matmul_186
+	matmul_187
+	matmul_188
+	matmul_189
+	matmul_190
+	matmul_191
+	matmul_192
+	matmul_193
+	matmul_194
+	matmul_195
+	matmul_196
+	matmul_197
+	matmul_198
+	matmul_199
+	matmul_200
+	matmul_201
+	matmul_202
+	matmul_203
+	matmul_204
+	matmul_205
+	matmul_206
+	matmul_207
+	matmul_208
+	matmul_209
+	matmul_210
+	matmul_211
+	matmul_212
+	matmul_213
+	matmul_214
+	matmul_215
+>> Dependency metrics (180 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		180	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-6-FALSE.png]
+executions/e-6
+>> Listing of all parsed calls (216 in total):
+	matmul_0
+	matmul_1
+	matmul_2
+	matmul_3
+	matmul_4
+	matmul_5
+	matmul_6
+	matmul_7
+	matmul_8
+	matmul_9
+	matmul_10
+	matmul_11
+	matmul_12
+	matmul_13
+	matmul_14
+	matmul_15
+	matmul_16
+	matmul_17
+	matmul_18
+	matmul_19
+	matmul_20
+	matmul_21
+	matmul_22
+	matmul_23
+	matmul_24
+	matmul_25
+	matmul_26
+	matmul_27
+	matmul_28
+	matmul_29
+	matmul_30
+	matmul_31
+	matmul_32
+	matmul_33
+	matmul_34
+	matmul_35
+	matmul_36
+	matmul_37
+	matmul_38
+	matmul_39
+	matmul_40
+	matmul_41
+	matmul_42
+	matmul_43
+	matmul_44
+	matmul_45
+	matmul_46
+	matmul_47
+	matmul_48
+	matmul_49
+	matmul_50
+	matmul_51
+	matmul_52
+	matmul_53
+	matmul_54
+	matmul_55
+	matmul_56
+	matmul_57
+	matmul_58
+	matmul_59
+	matmul_60
+	matmul_61
+	matmul_62
+	matmul_63
+	matmul_64
+	matmul_65
+	matmul_66
+	matmul_67
+	matmul_68
+	matmul_69
+	matmul_70
+	matmul_71
+	matmul_72
+	matmul_73
+	matmul_74
+	matmul_75
+	matmul_76
+	matmul_77
+	matmul_78
+	matmul_79
+	matmul_80
+	matmul_81
+	matmul_82
+	matmul_83
+	matmul_84
+	matmul_85
+	matmul_86
+	matmul_87
+	matmul_88
+	matmul_89
+	matmul_90
+	matmul_91
+	matmul_92
+	matmul_93
+	matmul_94
+	matmul_95
+	matmul_96
+	matmul_97
+	matmul_98
+	matmul_99
+	matmul_100
+	matmul_101
+	matmul_102
+	matmul_103
+	matmul_104
+	matmul_105
+	matmul_106
+	matmul_107
+	matmul_108
+	matmul_109
+	matmul_110
+	matmul_111
+	matmul_112
+	matmul_113
+	matmul_114
+	matmul_115
+	matmul_116
+	matmul_117
+	matmul_118
+	matmul_119
+	matmul_120
+	matmul_121
+	matmul_122
+	matmul_123
+	matmul_124
+	matmul_125
+	matmul_126
+	matmul_127
+	matmul_128
+	matmul_129
+	matmul_130
+	matmul_131
+	matmul_132
+	matmul_133
+	matmul_134
+	matmul_135
+	matmul_136
+	matmul_137
+	matmul_138
+	matmul_139
+	matmul_140
+	matmul_141
+	matmul_142
+	matmul_143
+	matmul_144
+	matmul_145
+	matmul_146
+	matmul_147
+	matmul_148
+	matmul_149
+	matmul_150
+	matmul_151
+	matmul_152
+	matmul_153
+	matmul_154
+	matmul_155
+	matmul_156
+	matmul_157
+	matmul_158
+	matmul_159
+	matmul_160
+	matmul_161
+	matmul_162
+	matmul_163
+	matmul_164
+	matmul_165
+	matmul_166
+	matmul_167
+	matmul_168
+	matmul_169
+	matmul_170
+	matmul_171
+	matmul_172
+	matmul_173
+	matmul_174
+	matmul_175
+	matmul_176
+	matmul_177
+	matmul_178
+	matmul_179
+	matmul_180
+	matmul_181
+	matmul_182
+	matmul_183
+	matmul_184
+	matmul_185
+	matmul_186
+	matmul_187
+	matmul_188
+	matmul_189
+	matmul_190
+	matmul_191
+	matmul_192
+	matmul_193
+	matmul_194
+	matmul_195
+	matmul_196
+	matmul_197
+	matmul_198
+	matmul_199
+	matmul_200
+	matmul_201
+	matmul_202
+	matmul_203
+	matmul_204
+	matmul_205
+	matmul_206
+	matmul_207
+	matmul_208
+	matmul_209
+	matmul_210
+	matmul_211
+	matmul_212
+	matmul_213
+	matmul_214
+	matmul_215
+>> Dependency metrics (180 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		180	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-6-TRUE]
+executions/e-7
+>> Listing of all parsed calls (343 in total):
+	matmul_0
+	matmul_1
+	matmul_2
+	matmul_3
+	matmul_4
+	matmul_5
+	matmul_6
+	matmul_7
+	matmul_8
+	matmul_9
+	matmul_10
+	matmul_11
+	matmul_12
+	matmul_13
+	matmul_14
+	matmul_15
+	matmul_16
+	matmul_17
+	matmul_18
+	matmul_19
+	matmul_20
+	matmul_21
+	matmul_22
+	matmul_23
+	matmul_24
+	matmul_25
+	matmul_26
+	matmul_27
+	matmul_28
+	matmul_29
+	matmul_30
+	matmul_31
+	matmul_32
+	matmul_33
+	matmul_34
+	matmul_35
+	matmul_36
+	matmul_37
+	matmul_38
+	matmul_39
+	matmul_40
+	matmul_41
+	matmul_42
+	matmul_43
+	matmul_44
+	matmul_45
+	matmul_46
+	matmul_47
+	matmul_48
+	matmul_49
+	matmul_50
+	matmul_51
+	matmul_52
+	matmul_53
+	matmul_54
+	matmul_55
+	matmul_56
+	matmul_57
+	matmul_58
+	matmul_59
+	matmul_60
+	matmul_61
+	matmul_62
+	matmul_63
+	matmul_64
+	matmul_65
+	matmul_66
+	matmul_67
+	matmul_68
+	matmul_69
+	matmul_70
+	matmul_71
+	matmul_72
+	matmul_73
+	matmul_74
+	matmul_75
+	matmul_76
+	matmul_77
+	matmul_78
+	matmul_79
+	matmul_80
+	matmul_81
+	matmul_82
+	matmul_83
+	matmul_84
+	matmul_85
+	matmul_86
+	matmul_87
+	matmul_88
+	matmul_89
+	matmul_90
+	matmul_91
+	matmul_92
+	matmul_93
+	matmul_94
+	matmul_95
+	matmul_96
+	matmul_97
+	matmul_98
+	matmul_99
+	matmul_100
+	matmul_101
+	matmul_102
+	matmul_103
+	matmul_104
+	matmul_105
+	matmul_106
+	matmul_107
+	matmul_108
+	matmul_109
+	matmul_110
+	matmul_111
+	matmul_112
+	matmul_113
+	matmul_114
+	matmul_115
+	matmul_116
+	matmul_117
+	matmul_118
+	matmul_119
+	matmul_120
+	matmul_121
+	matmul_122
+	matmul_123
+	matmul_124
+	matmul_125
+	matmul_126
+	matmul_127
+	matmul_128
+	matmul_129
+	matmul_130
+	matmul_131
+	matmul_132
+	matmul_133
+	matmul_134
+	matmul_135
+	matmul_136
+	matmul_137
+	matmul_138
+	matmul_139
+	matmul_140
+	matmul_141
+	matmul_142
+	matmul_143
+	matmul_144
+	matmul_145
+	matmul_146
+	matmul_147
+	matmul_148
+	matmul_149
+	matmul_150
+	matmul_151
+	matmul_152
+	matmul_153
+	matmul_154
+	matmul_155
+	matmul_156
+	matmul_157
+	matmul_158
+	matmul_159
+	matmul_160
+	matmul_161
+	matmul_162
+	matmul_163
+	matmul_164
+	matmul_165
+	matmul_166
+	matmul_167
+	matmul_168
+	matmul_169
+	matmul_170
+	matmul_171
+	matmul_172
+	matmul_173
+	matmul_174
+	matmul_175
+	matmul_176
+	matmul_177
+	matmul_178
+	matmul_179
+	matmul_180
+	matmul_181
+	matmul_182
+	matmul_183
+	matmul_184
+	matmul_185
+	matmul_186
+	matmul_187
+	matmul_188
+	matmul_189
+	matmul_190
+	matmul_191
+	matmul_192
+	matmul_193
+	matmul_194
+	matmul_195
+	matmul_196
+	matmul_197
+	matmul_198
+	matmul_199
+	matmul_200
+	matmul_201
+	matmul_202
+	matmul_203
+	matmul_204
+	matmul_205
+	matmul_206
+	matmul_207
+	matmul_208
+	matmul_209
+	matmul_210
+	matmul_211
+	matmul_212
+	matmul_213
+	matmul_214
+	matmul_215
+	matmul_216
+	matmul_217
+	matmul_218
+	matmul_219
+	matmul_220
+	matmul_221
+	matmul_222
+	matmul_223
+	matmul_224
+	matmul_225
+	matmul_226
+	matmul_227
+	matmul_228
+	matmul_229
+	matmul_230
+	matmul_231
+	matmul_232
+	matmul_233
+	matmul_234
+	matmul_235
+	matmul_236
+	matmul_237
+	matmul_238
+	matmul_239
+	matmul_240
+	matmul_241
+	matmul_242
+	matmul_243
+	matmul_244
+	matmul_245
+	matmul_246
+	matmul_247
+	matmul_248
+	matmul_249
+	matmul_250
+	matmul_251
+	matmul_252
+	matmul_253
+	matmul_254
+	matmul_255
+	matmul_256
+	matmul_257
+	matmul_258
+	matmul_259
+	matmul_260
+	matmul_261
+	matmul_262
+	matmul_263
+	matmul_264
+	matmul_265
+	matmul_266
+	matmul_267
+	matmul_268
+	matmul_269
+	matmul_270
+	matmul_271
+	matmul_272
+	matmul_273
+	matmul_274
+	matmul_275
+	matmul_276
+	matmul_277
+	matmul_278
+	matmul_279
+	matmul_280
+	matmul_281
+	matmul_282
+	matmul_283
+	matmul_284
+	matmul_285
+	matmul_286
+	matmul_287
+	matmul_288
+	matmul_289
+	matmul_290
+	matmul_291
+	matmul_292
+	matmul_293
+	matmul_294
+	matmul_295
+	matmul_296
+	matmul_297
+	matmul_298
+	matmul_299
+	matmul_300
+	matmul_301
+	matmul_302
+	matmul_303
+	matmul_304
+	matmul_305
+	matmul_306
+	matmul_307
+	matmul_308
+	matmul_309
+	matmul_310
+	matmul_311
+	matmul_312
+	matmul_313
+	matmul_314
+	matmul_315
+	matmul_316
+	matmul_317
+	matmul_318
+	matmul_319
+	matmul_320
+	matmul_321
+	matmul_322
+	matmul_323
+	matmul_324
+	matmul_325
+	matmul_326
+	matmul_327
+	matmul_328
+	matmul_329
+	matmul_330
+	matmul_331
+	matmul_332
+	matmul_333
+	matmul_334
+	matmul_335
+	matmul_336
+	matmul_337
+	matmul_338
+	matmul_339
+	matmul_340
+	matmul_341
+	matmul_342
+>> Dependency metrics (294 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		294	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-7-FALSE.png]
+executions/e-7
+>> Listing of all parsed calls (343 in total):
+	matmul_0
+	matmul_1
+	matmul_2
+	matmul_3
+	matmul_4
+	matmul_5
+	matmul_6
+	matmul_7
+	matmul_8
+	matmul_9
+	matmul_10
+	matmul_11
+	matmul_12
+	matmul_13
+	matmul_14
+	matmul_15
+	matmul_16
+	matmul_17
+	matmul_18
+	matmul_19
+	matmul_20
+	matmul_21
+	matmul_22
+	matmul_23
+	matmul_24
+	matmul_25
+	matmul_26
+	matmul_27
+	matmul_28
+	matmul_29
+	matmul_30
+	matmul_31
+	matmul_32
+	matmul_33
+	matmul_34
+	matmul_35
+	matmul_36
+	matmul_37
+	matmul_38
+	matmul_39
+	matmul_40
+	matmul_41
+	matmul_42
+	matmul_43
+	matmul_44
+	matmul_45
+	matmul_46
+	matmul_47
+	matmul_48
+	matmul_49
+	matmul_50
+	matmul_51
+	matmul_52
+	matmul_53
+	matmul_54
+	matmul_55
+	matmul_56
+	matmul_57
+	matmul_58
+	matmul_59
+	matmul_60
+	matmul_61
+	matmul_62
+	matmul_63
+	matmul_64
+	matmul_65
+	matmul_66
+	matmul_67
+	matmul_68
+	matmul_69
+	matmul_70
+	matmul_71
+	matmul_72
+	matmul_73
+	matmul_74
+	matmul_75
+	matmul_76
+	matmul_77
+	matmul_78
+	matmul_79
+	matmul_80
+	matmul_81
+	matmul_82
+	matmul_83
+	matmul_84
+	matmul_85
+	matmul_86
+	matmul_87
+	matmul_88
+	matmul_89
+	matmul_90
+	matmul_91
+	matmul_92
+	matmul_93
+	matmul_94
+	matmul_95
+	matmul_96
+	matmul_97
+	matmul_98
+	matmul_99
+	matmul_100
+	matmul_101
+	matmul_102
+	matmul_103
+	matmul_104
+	matmul_105
+	matmul_106
+	matmul_107
+	matmul_108
+	matmul_109
+	matmul_110
+	matmul_111
+	matmul_112
+	matmul_113
+	matmul_114
+	matmul_115
+	matmul_116
+	matmul_117
+	matmul_118
+	matmul_119
+	matmul_120
+	matmul_121
+	matmul_122
+	matmul_123
+	matmul_124
+	matmul_125
+	matmul_126
+	matmul_127
+	matmul_128
+	matmul_129
+	matmul_130
+	matmul_131
+	matmul_132
+	matmul_133
+	matmul_134
+	matmul_135
+	matmul_136
+	matmul_137
+	matmul_138
+	matmul_139
+	matmul_140
+	matmul_141
+	matmul_142
+	matmul_143
+	matmul_144
+	matmul_145
+	matmul_146
+	matmul_147
+	matmul_148
+	matmul_149
+	matmul_150
+	matmul_151
+	matmul_152
+	matmul_153
+	matmul_154
+	matmul_155
+	matmul_156
+	matmul_157
+	matmul_158
+	matmul_159
+	matmul_160
+	matmul_161
+	matmul_162
+	matmul_163
+	matmul_164
+	matmul_165
+	matmul_166
+	matmul_167
+	matmul_168
+	matmul_169
+	matmul_170
+	matmul_171
+	matmul_172
+	matmul_173
+	matmul_174
+	matmul_175
+	matmul_176
+	matmul_177
+	matmul_178
+	matmul_179
+	matmul_180
+	matmul_181
+	matmul_182
+	matmul_183
+	matmul_184
+	matmul_185
+	matmul_186
+	matmul_187
+	matmul_188
+	matmul_189
+	matmul_190
+	matmul_191
+	matmul_192
+	matmul_193
+	matmul_194
+	matmul_195
+	matmul_196
+	matmul_197
+	matmul_198
+	matmul_199
+	matmul_200
+	matmul_201
+	matmul_202
+	matmul_203
+	matmul_204
+	matmul_205
+	matmul_206
+	matmul_207
+	matmul_208
+	matmul_209
+	matmul_210
+	matmul_211
+	matmul_212
+	matmul_213
+	matmul_214
+	matmul_215
+	matmul_216
+	matmul_217
+	matmul_218
+	matmul_219
+	matmul_220
+	matmul_221
+	matmul_222
+	matmul_223
+	matmul_224
+	matmul_225
+	matmul_226
+	matmul_227
+	matmul_228
+	matmul_229
+	matmul_230
+	matmul_231
+	matmul_232
+	matmul_233
+	matmul_234
+	matmul_235
+	matmul_236
+	matmul_237
+	matmul_238
+	matmul_239
+	matmul_240
+	matmul_241
+	matmul_242
+	matmul_243
+	matmul_244
+	matmul_245
+	matmul_246
+	matmul_247
+	matmul_248
+	matmul_249
+	matmul_250
+	matmul_251
+	matmul_252
+	matmul_253
+	matmul_254
+	matmul_255
+	matmul_256
+	matmul_257
+	matmul_258
+	matmul_259
+	matmul_260
+	matmul_261
+	matmul_262
+	matmul_263
+	matmul_264
+	matmul_265
+	matmul_266
+	matmul_267
+	matmul_268
+	matmul_269
+	matmul_270
+	matmul_271
+	matmul_272
+	matmul_273
+	matmul_274
+	matmul_275
+	matmul_276
+	matmul_277
+	matmul_278
+	matmul_279
+	matmul_280
+	matmul_281
+	matmul_282
+	matmul_283
+	matmul_284
+	matmul_285
+	matmul_286
+	matmul_287
+	matmul_288
+	matmul_289
+	matmul_290
+	matmul_291
+	matmul_292
+	matmul_293
+	matmul_294
+	matmul_295
+	matmul_296
+	matmul_297
+	matmul_298
+	matmul_299
+	matmul_300
+	matmul_301
+	matmul_302
+	matmul_303
+	matmul_304
+	matmul_305
+	matmul_306
+	matmul_307
+	matmul_308
+	matmul_309
+	matmul_310
+	matmul_311
+	matmul_312
+	matmul_313
+	matmul_314
+	matmul_315
+	matmul_316
+	matmul_317
+	matmul_318
+	matmul_319
+	matmul_320
+	matmul_321
+	matmul_322
+	matmul_323
+	matmul_324
+	matmul_325
+	matmul_326
+	matmul_327
+	matmul_328
+	matmul_329
+	matmul_330
+	matmul_331
+	matmul_332
+	matmul_333
+	matmul_334
+	matmul_335
+	matmul_336
+	matmul_337
+	matmul_338
+	matmul_339
+	matmul_340
+	matmul_341
+	matmul_342
+>> Dependency metrics (294 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		294	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/matmul/.dotswap, -Tpng, -o, graphs/e-7-TRUE]
+/home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu
+executions/e-1
+>> Listing of all parsed calls (0 in total):
+>> Dependency metrics (0 in total):
+	Number of effective false dependencies:	0	(�)
+	Number of true dependencies:		0	(�)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-1-FALSE.png]
+executions/e-1
+>> Listing of all parsed calls (0 in total):
+>> Dependency metrics (0 in total):
+	Number of effective false dependencies:	0	(�)
+	Number of true dependencies:		0	(�)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-1-TRUE]
+executions/e-2
+>> Listing of all parsed calls (2 in total):
+	lu_strsm_0
+	lu_sgemm_1
+>> Dependency metrics (1 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		1	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-2-FALSE.png]
+executions/e-2
+>> Listing of all parsed calls (2 in total):
+	lu_strsm_0
+	lu_sgemm_1
+>> Dependency metrics (1 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		1	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-2-TRUE]
+executions/e-3
+>> Listing of all parsed calls (8 in total):
+	lu_strsm_0
+	lu_strsm_1
+	lu_sgemm_2
+	lu_sgemm_3
+	lu_sgemm_4
+	lu_sgemm_5
+	lu_strsm_6
+	lu_sgemm_7
+>> Dependency metrics (9 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		9	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-3-FALSE.png]
+executions/e-3
+>> Listing of all parsed calls (8 in total):
+	lu_strsm_0
+	lu_strsm_1
+	lu_sgemm_2
+	lu_sgemm_3
+	lu_sgemm_4
+	lu_sgemm_5
+	lu_strsm_6
+	lu_sgemm_7
+>> Dependency metrics (9 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		9	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-3-TRUE]
+executions/e-4
+>> Listing of all parsed calls (20 in total):
+	lu_strsm_0
+	lu_strsm_1
+	lu_strsm_2
+	lu_sgemm_3
+	lu_sgemm_4
+	lu_sgemm_5
+	lu_sgemm_6
+	lu_sgemm_7
+	lu_sgemm_8
+	lu_sgemm_9
+	lu_sgemm_10
+	lu_sgemm_11
+	lu_strsm_12
+	lu_strsm_13
+	lu_sgemm_14
+	lu_sgemm_15
+	lu_sgemm_16
+	lu_sgemm_17
+	lu_strsm_18
+	lu_sgemm_19
+>> Dependency metrics (30 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		30	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-4-FALSE.png]
+executions/e-4
+>> Listing of all parsed calls (20 in total):
+	lu_strsm_0
+	lu_strsm_1
+	lu_strsm_2
+	lu_sgemm_3
+	lu_sgemm_4
+	lu_sgemm_5
+	lu_sgemm_6
+	lu_sgemm_7
+	lu_sgemm_8
+	lu_sgemm_9
+	lu_sgemm_10
+	lu_sgemm_11
+	lu_strsm_12
+	lu_strsm_13
+	lu_sgemm_14
+	lu_sgemm_15
+	lu_sgemm_16
+	lu_sgemm_17
+	lu_strsm_18
+	lu_sgemm_19
+>> Dependency metrics (30 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		30	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-4-TRUE]
+executions/e-5
+>> Listing of all parsed calls (40 in total):
+	lu_strsm_0
+	lu_strsm_1
+	lu_strsm_2
+	lu_strsm_3
+	lu_sgemm_4
+	lu_sgemm_5
+	lu_sgemm_6
+	lu_sgemm_7
+	lu_sgemm_8
+	lu_sgemm_9
+	lu_sgemm_10
+	lu_sgemm_11
+	lu_sgemm_12
+	lu_sgemm_13
+	lu_sgemm_14
+	lu_sgemm_15
+	lu_sgemm_16
+	lu_sgemm_17
+	lu_sgemm_18
+	lu_sgemm_19
+	lu_strsm_20
+	lu_strsm_21
+	lu_strsm_22
+	lu_sgemm_23
+	lu_sgemm_24
+	lu_sgemm_25
+	lu_sgemm_26
+	lu_sgemm_27
+	lu_sgemm_28
+	lu_sgemm_29
+	lu_sgemm_30
+	lu_sgemm_31
+	lu_strsm_32
+	lu_strsm_33
+	lu_sgemm_34
+	lu_sgemm_35
+	lu_sgemm_36
+	lu_sgemm_37
+	lu_strsm_38
+	lu_sgemm_39
+>> Dependency metrics (70 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		70	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-5-FALSE.png]
+executions/e-5
+>> Listing of all parsed calls (40 in total):
+	lu_strsm_0
+	lu_strsm_1
+	lu_strsm_2
+	lu_strsm_3
+	lu_sgemm_4
+	lu_sgemm_5
+	lu_sgemm_6
+	lu_sgemm_7
+	lu_sgemm_8
+	lu_sgemm_9
+	lu_sgemm_10
+	lu_sgemm_11
+	lu_sgemm_12
+	lu_sgemm_13
+	lu_sgemm_14
+	lu_sgemm_15
+	lu_sgemm_16
+	lu_sgemm_17
+	lu_sgemm_18
+	lu_sgemm_19
+	lu_strsm_20
+	lu_strsm_21
+	lu_strsm_22
+	lu_sgemm_23
+	lu_sgemm_24
+	lu_sgemm_25
+	lu_sgemm_26
+	lu_sgemm_27
+	lu_sgemm_28
+	lu_sgemm_29
+	lu_sgemm_30
+	lu_sgemm_31
+	lu_strsm_32
+	lu_strsm_33
+	lu_sgemm_34
+	lu_sgemm_35
+	lu_sgemm_36
+	lu_sgemm_37
+	lu_strsm_38
+	lu_sgemm_39
+>> Dependency metrics (70 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		70	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-5-TRUE]
+executions/e-6
+>> Listing of all parsed calls (70 in total):
+	lu_strsm_0
+	lu_strsm_1
+	lu_strsm_2
+	lu_strsm_3
+	lu_strsm_4
+	lu_sgemm_5
+	lu_sgemm_6
+	lu_sgemm_7
+	lu_sgemm_8
+	lu_sgemm_9
+	lu_sgemm_10
+	lu_sgemm_11
+	lu_sgemm_12
+	lu_sgemm_13
+	lu_sgemm_14
+	lu_sgemm_15
+	lu_sgemm_16
+	lu_sgemm_17
+	lu_sgemm_18
+	lu_sgemm_19
+	lu_sgemm_20
+	lu_sgemm_21
+	lu_sgemm_22
+	lu_sgemm_23
+	lu_sgemm_24
+	lu_sgemm_25
+	lu_sgemm_26
+	lu_sgemm_27
+	lu_sgemm_28
+	lu_sgemm_29
+	lu_strsm_30
+	lu_strsm_31
+	lu_strsm_32
+	lu_strsm_33
+	lu_sgemm_34
+	lu_sgemm_35
+	lu_sgemm_36
+	lu_sgemm_37
+	lu_sgemm_38
+	lu_sgemm_39
+	lu_sgemm_40
+	lu_sgemm_41
+	lu_sgemm_42
+	lu_sgemm_43
+	lu_sgemm_44
+	lu_sgemm_45
+	lu_sgemm_46
+	lu_sgemm_47
+	lu_sgemm_48
+	lu_sgemm_49
+	lu_strsm_50
+	lu_strsm_51
+	lu_strsm_52
+	lu_sgemm_53
+	lu_sgemm_54
+	lu_sgemm_55
+	lu_sgemm_56
+	lu_sgemm_57
+	lu_sgemm_58
+	lu_sgemm_59
+	lu_sgemm_60
+	lu_sgemm_61
+	lu_strsm_62
+	lu_strsm_63
+	lu_sgemm_64
+	lu_sgemm_65
+	lu_sgemm_66
+	lu_sgemm_67
+	lu_strsm_68
+	lu_sgemm_69
+>> Dependency metrics (135 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		135	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-6-FALSE.png]
+executions/e-6
+>> Listing of all parsed calls (70 in total):
+	lu_strsm_0
+	lu_strsm_1
+	lu_strsm_2
+	lu_strsm_3
+	lu_strsm_4
+	lu_sgemm_5
+	lu_sgemm_6
+	lu_sgemm_7
+	lu_sgemm_8
+	lu_sgemm_9
+	lu_sgemm_10
+	lu_sgemm_11
+	lu_sgemm_12
+	lu_sgemm_13
+	lu_sgemm_14
+	lu_sgemm_15
+	lu_sgemm_16
+	lu_sgemm_17
+	lu_sgemm_18
+	lu_sgemm_19
+	lu_sgemm_20
+	lu_sgemm_21
+	lu_sgemm_22
+	lu_sgemm_23
+	lu_sgemm_24
+	lu_sgemm_25
+	lu_sgemm_26
+	lu_sgemm_27
+	lu_sgemm_28
+	lu_sgemm_29
+	lu_strsm_30
+	lu_strsm_31
+	lu_strsm_32
+	lu_strsm_33
+	lu_sgemm_34
+	lu_sgemm_35
+	lu_sgemm_36
+	lu_sgemm_37
+	lu_sgemm_38
+	lu_sgemm_39
+	lu_sgemm_40
+	lu_sgemm_41
+	lu_sgemm_42
+	lu_sgemm_43
+	lu_sgemm_44
+	lu_sgemm_45
+	lu_sgemm_46
+	lu_sgemm_47
+	lu_sgemm_48
+	lu_sgemm_49
+	lu_strsm_50
+	lu_strsm_51
+	lu_strsm_52
+	lu_sgemm_53
+	lu_sgemm_54
+	lu_sgemm_55
+	lu_sgemm_56
+	lu_sgemm_57
+	lu_sgemm_58
+	lu_sgemm_59
+	lu_sgemm_60
+	lu_sgemm_61
+	lu_strsm_62
+	lu_strsm_63
+	lu_sgemm_64
+	lu_sgemm_65
+	lu_sgemm_66
+	lu_sgemm_67
+	lu_strsm_68
+	lu_sgemm_69
+>> Dependency metrics (135 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		135	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-6-TRUE]
+executions/e-7
+>> Listing of all parsed calls (112 in total):
+	lu_strsm_0
+	lu_strsm_1
+	lu_strsm_2
+	lu_strsm_3
+	lu_strsm_4
+	lu_strsm_5
+	lu_sgemm_6
+	lu_sgemm_7
+	lu_sgemm_8
+	lu_sgemm_9
+	lu_sgemm_10
+	lu_sgemm_11
+	lu_sgemm_12
+	lu_sgemm_13
+	lu_sgemm_14
+	lu_sgemm_15
+	lu_sgemm_16
+	lu_sgemm_17
+	lu_sgemm_18
+	lu_sgemm_19
+	lu_sgemm_20
+	lu_sgemm_21
+	lu_sgemm_22
+	lu_sgemm_23
+	lu_sgemm_24
+	lu_sgemm_25
+	lu_sgemm_26
+	lu_sgemm_27
+	lu_sgemm_28
+	lu_sgemm_29
+	lu_sgemm_30
+	lu_sgemm_31
+	lu_sgemm_32
+	lu_sgemm_33
+	lu_sgemm_34
+	lu_sgemm_35
+	lu_sgemm_36
+	lu_sgemm_37
+	lu_sgemm_38
+	lu_sgemm_39
+	lu_sgemm_40
+	lu_sgemm_41
+	lu_strsm_42
+	lu_strsm_43
+	lu_strsm_44
+	lu_strsm_45
+	lu_strsm_46
+	lu_sgemm_47
+	lu_sgemm_48
+	lu_sgemm_49
+	lu_sgemm_50
+	lu_sgemm_51
+	lu_sgemm_52
+	lu_sgemm_53
+	lu_sgemm_54
+	lu_sgemm_55
+	lu_sgemm_56
+	lu_sgemm_57
+	lu_sgemm_58
+	lu_sgemm_59
+	lu_sgemm_60
+	lu_sgemm_61
+	lu_sgemm_62
+	lu_sgemm_63
+	lu_sgemm_64
+	lu_sgemm_65
+	lu_sgemm_66
+	lu_sgemm_67
+	lu_sgemm_68
+	lu_sgemm_69
+	lu_sgemm_70
+	lu_sgemm_71
+	lu_strsm_72
+	lu_strsm_73
+	lu_strsm_74
+	lu_strsm_75
+	lu_sgemm_76
+	lu_sgemm_77
+	lu_sgemm_78
+	lu_sgemm_79
+	lu_sgemm_80
+	lu_sgemm_81
+	lu_sgemm_82
+	lu_sgemm_83
+	lu_sgemm_84
+	lu_sgemm_85
+	lu_sgemm_86
+	lu_sgemm_87
+	lu_sgemm_88
+	lu_sgemm_89
+	lu_sgemm_90
+	lu_sgemm_91
+	lu_strsm_92
+	lu_strsm_93
+	lu_strsm_94
+	lu_sgemm_95
+	lu_sgemm_96
+	lu_sgemm_97
+	lu_sgemm_98
+	lu_sgemm_99
+	lu_sgemm_100
+	lu_sgemm_101
+	lu_sgemm_102
+	lu_sgemm_103
+	lu_strsm_104
+	lu_strsm_105
+	lu_sgemm_106
+	lu_sgemm_107
+	lu_sgemm_108
+	lu_sgemm_109
+	lu_strsm_110
+	lu_sgemm_111
+>> Dependency metrics (231 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		231	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-7-FALSE.png]
+executions/e-7
+>> Listing of all parsed calls (112 in total):
+	lu_strsm_0
+	lu_strsm_1
+	lu_strsm_2
+	lu_strsm_3
+	lu_strsm_4
+	lu_strsm_5
+	lu_sgemm_6
+	lu_sgemm_7
+	lu_sgemm_8
+	lu_sgemm_9
+	lu_sgemm_10
+	lu_sgemm_11
+	lu_sgemm_12
+	lu_sgemm_13
+	lu_sgemm_14
+	lu_sgemm_15
+	lu_sgemm_16
+	lu_sgemm_17
+	lu_sgemm_18
+	lu_sgemm_19
+	lu_sgemm_20
+	lu_sgemm_21
+	lu_sgemm_22
+	lu_sgemm_23
+	lu_sgemm_24
+	lu_sgemm_25
+	lu_sgemm_26
+	lu_sgemm_27
+	lu_sgemm_28
+	lu_sgemm_29
+	lu_sgemm_30
+	lu_sgemm_31
+	lu_sgemm_32
+	lu_sgemm_33
+	lu_sgemm_34
+	lu_sgemm_35
+	lu_sgemm_36
+	lu_sgemm_37
+	lu_sgemm_38
+	lu_sgemm_39
+	lu_sgemm_40
+	lu_sgemm_41
+	lu_strsm_42
+	lu_strsm_43
+	lu_strsm_44
+	lu_strsm_45
+	lu_strsm_46
+	lu_sgemm_47
+	lu_sgemm_48
+	lu_sgemm_49
+	lu_sgemm_50
+	lu_sgemm_51
+	lu_sgemm_52
+	lu_sgemm_53
+	lu_sgemm_54
+	lu_sgemm_55
+	lu_sgemm_56
+	lu_sgemm_57
+	lu_sgemm_58
+	lu_sgemm_59
+	lu_sgemm_60
+	lu_sgemm_61
+	lu_sgemm_62
+	lu_sgemm_63
+	lu_sgemm_64
+	lu_sgemm_65
+	lu_sgemm_66
+	lu_sgemm_67
+	lu_sgemm_68
+	lu_sgemm_69
+	lu_sgemm_70
+	lu_sgemm_71
+	lu_strsm_72
+	lu_strsm_73
+	lu_strsm_74
+	lu_strsm_75
+	lu_sgemm_76
+	lu_sgemm_77
+	lu_sgemm_78
+	lu_sgemm_79
+	lu_sgemm_80
+	lu_sgemm_81
+	lu_sgemm_82
+	lu_sgemm_83
+	lu_sgemm_84
+	lu_sgemm_85
+	lu_sgemm_86
+	lu_sgemm_87
+	lu_sgemm_88
+	lu_sgemm_89
+	lu_sgemm_90
+	lu_sgemm_91
+	lu_strsm_92
+	lu_strsm_93
+	lu_strsm_94
+	lu_sgemm_95
+	lu_sgemm_96
+	lu_sgemm_97
+	lu_sgemm_98
+	lu_sgemm_99
+	lu_sgemm_100
+	lu_sgemm_101
+	lu_sgemm_102
+	lu_sgemm_103
+	lu_strsm_104
+	lu_strsm_105
+	lu_sgemm_106
+	lu_sgemm_107
+	lu_sgemm_108
+	lu_sgemm_109
+	lu_strsm_110
+	lu_sgemm_111
+>> Dependency metrics (231 in total):
+	Number of effective false dependencies:	0	(0%)
+	Number of true dependencies:		231	(100%)
+>> Executing gnuplot as the following: 
+	[gnuplot, .histoDescriptor]
+>> Executing dot as the following:
+	[dot, /home/lucas/Dropbox/Trabalho/IC_guido/3rdSem/Code/lu/.dotswap, -Tpng, -o, graphs/e-7-TRUE]
