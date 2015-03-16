@@ -69,10 +69,7 @@ public class DParser {
 		
 		String temp = in.readLine();
 		if (temp == null)
-		{
-			in.reset();
 			return false;
-		}
 		b = !temp.matches("\\d+;\\s*\\d+");
 		
 		in.reset();
@@ -101,10 +98,7 @@ public class DParser {
 		
 		String temp = in.readLine();
 		if (temp == null)
-		{
-			in.reset();
 			return false;
-		}
 		b = temp.matches("R: [0-9a-fA-F]+");
 		
 		in.reset();
@@ -133,10 +127,7 @@ public class DParser {
 		
 		String temp = in.readLine();
 		if (temp == null)
-		{
-			in.reset();
 			return false;
-		}
 		b = temp.matches("W: [0-9a-fA-F]+");
 		
 		in.reset();
