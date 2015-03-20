@@ -58,7 +58,7 @@ for i in $( ls executions )
 		java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i executions/$i -m -cf \
 		-O graphs/$i-FALSE.png -h histograms/$i-FALSE.png 
 		java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i executions/$i -m -ct \
-		-Ot graphs/$i-TRUE -h histograms/$i-TRUE.png
+		-Ot graphs/$i-TRUE.png-h histograms/$i-TRUE.png
 
 	done
 
@@ -69,7 +69,7 @@ for i in $( ls executions )
 		java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i executions/$i -m -cf \
 		-O graphs/$i-FALSE.png -h histograms/$i-FALSE.png 
                 java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i executions/$i -m -ct \
-		-Ot graphs/$i-TRUE -h histograms/$i-TRUE.png
+		-Ot graphs/$i-TRUE.png-h histograms/$i-TRUE.png
 	done
 
 cd $benchmarksDir/$luDir
@@ -79,6 +79,6 @@ for i in $( ls executions )
 	        java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i executions/$i -m -cf \
 	        -O graphs/$i-FALSE.png -h histograms/$i-FALSE.png
 		java -jar "/home/lucas/Dropbox/Eclipse Workspace/DepSolver/jar/DepSolver.jar" -i executions/$i -m -ct \
-		-Ot graphs/$i-TRUE -h histograms/$i-TRUE.png
+		-Ot graphs/$i-TRUE.png-h histograms/$i-TRUE.png
 	done
 
