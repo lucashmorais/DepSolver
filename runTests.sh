@@ -4,7 +4,6 @@ benchmarksDir=$1
 choleskyDir=cholesky
 matmulDir=matmul
 luDir=lu
-testString="one two three four five six"
 
 
 #Runs cholesky for various inputs
