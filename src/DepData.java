@@ -8,6 +8,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.HashMap;
 import java.util.Set;
 
 
@@ -208,7 +209,38 @@ public class DepData {
 	}
 
 	public void solveDependencies() {
-		
+		HashMap<Integer, Call> reads = new HashMap<Integer, Call>();
+		HashMap<Integer, Call> writes = new HashMap<Integer, Call>();
+
+		for (Call c: calls)
+		{
+			for (Integer pos: c.getReads())
+			{
+				if (writes.keySet().contains(pos))
+				{
+					c.addRAW(writes.get(pos));
+				}
+
+				reads.put(pos, c);
+			}
+
+			for (Integer pos: c.getWrites())
+			{
+				if (writes.keySet().contains(pos))
+				{
+					c.addWAW(writes.get(pos));
+				}
+
+				if (reads.keySet().contains(pos))
+				{
+					c.addWAR(reads.get(pos));
+				}
+
+				writes.put(pos, c);
+			}
+		}
+
+		/*
 		for (int i = 1; i < calls.size(); i++)
 		{
 			for (int j = 0; j < i; j++)
@@ -248,6 +280,7 @@ public class DepData {
 				}
 			}
 		}
+		*/
 		
 			/*
 		for (Call c: calls)
@@ -289,9 +322,9 @@ public class DepData {
 		
 		*/
 		
-		clearUntrueDeps();
-		topologicallySort();
-		trueTopologicalSort();
+	//	clearUntrueDeps();
+//		topologicallySort();
+		//trueTopologicalSort();
 	}
 	
 	private void topologicallySort()
