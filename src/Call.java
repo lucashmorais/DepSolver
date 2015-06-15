@@ -11,7 +11,9 @@ public class Call implements Cloneable{
 	HashSet<Call> WARDependencies;
 	HashSet<Call> AllRAWDependencies;
 	HashSet<Call> RAWDependents;
+	HashSet<Call> AllDependents;
 	int callNumber;
+	int numDependencies;
 	String procedureName;
 	
 	public HashSet<Call> getAllRAWDependencies() {
@@ -33,7 +35,11 @@ public class Call implements Cloneable{
 	public HashSet<Call> getRAWDependents() {
 		return RAWDependents;
 	}
-	
+
+	public HashSet<Call> getAllDependents() {
+		return AllDependents;
+	}
+
 	public Call clone()
 	{
 		Call copy = new Call(callNumber, procedureName, readPositions, writePositions);
@@ -53,6 +59,7 @@ public class Call implements Cloneable{
 		WAWDependencies = new HashSet<Call>();
 		WARDependencies = new HashSet<Call>();
 		RAWDependents = new HashSet<Call>();
+		numDependencies = 0;
 	}
 	
 	public Call ()
@@ -130,6 +137,7 @@ public class Call implements Cloneable{
 	{
 		RAWDependencies.add(dep);
 		AllRAWDependencies.add(dep);
+		numDependencies++;
 	}
 
 	public void addDerivedRAW (Call dep)
@@ -145,16 +153,28 @@ public class Call implements Cloneable{
 	public void addWAW (Call dep)
 	{
 		WAWDependencies.add(dep);
+		numDependencies++;
 	}
 	
 	public void addWAR (Call dep)
 	{
 		WARDependencies.add(dep);
+		numDependencies++;
 	}
 
 	public void addRAWDependent (Call dependent)
 	{
 		RAWDependents.add(dependent);
+	}
+
+	public void addWAWDependent (Call dependent)
+	{
+		AllDependents.add(dependent);
+	}
+
+	public void addWARDependent (Call dependent)
+	{
+		AllDependents.add(dependent);
 	}
 	
 	public String toString ()
@@ -201,7 +221,7 @@ public class Call implements Cloneable{
 		WARDependencies.clear();
 		WARDependencies.addAll(warDeps);		
 	}
-	
+
 	public void setAllRAW(Set<Call> allRAWDeps)
 	{
 		AllRAWDependencies.clear();
@@ -214,6 +234,12 @@ public class Call implements Cloneable{
 		RAWDependents.addAll(newRAWDependents);
 	}
 
+	public void setAllDependents(Set<Call> newAllDependents)
+	{
+		AllDependents.clear();
+		AllDependents.addAll(newAllDependents);
+	}
+	
 	public boolean trulyDependsOfAny(HashSet<Call> callSet)
 	{
 		if (callSet.size() < RAWDependencies.size())
