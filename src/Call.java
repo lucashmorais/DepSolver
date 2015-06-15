@@ -10,15 +10,16 @@ public class Call implements Cloneable{
 	HashSet<Call> WAWDependencies;
 	HashSet<Call> WARDependencies;
 	HashSet<Call> AllRAWDependencies;
+	HashSet<Call> RAWDependents;
 	int callNumber;
 	String procedureName;
 	
 	public HashSet<Call> getAllRAWDependencies() {
-		return new HashSet<Call>(AllRAWDependencies);
+		return AllRAWDependencies;
 	}	
 	
 	public HashSet<Call> getRAWDependencies() {
-		return new HashSet<Call>(RAWDependencies);
+		return RAWDependencies;
 	}
 
 	public HashSet<Call> getWAWDependencies() {
@@ -28,6 +29,10 @@ public class Call implements Cloneable{
 	public HashSet<Call> getWARDependencies() {
 		return new HashSet<Call>(WARDependencies);
 	}
+
+	public HashSet<Call> getRAWDependents() {
+		return RAWDependents;
+	}
 	
 	public Call clone()
 	{
@@ -36,6 +41,7 @@ public class Call implements Cloneable{
 		copy.setRAW(RAWDependencies);
 		copy.setWAR(WARDependencies);
 		copy.setWAW(WAWDependencies);
+		copy.setRAWDependents(RAWDependents);
 		
 		return copy;		
 	}
@@ -46,6 +52,7 @@ public class Call implements Cloneable{
 		AllRAWDependencies = new HashSet<Call>();
 		WAWDependencies = new HashSet<Call>();
 		WARDependencies = new HashSet<Call>();
+		RAWDependents = new HashSet<Call>();
 	}
 	
 	public Call ()
@@ -124,6 +131,16 @@ public class Call implements Cloneable{
 		RAWDependencies.add(dep);
 		AllRAWDependencies.add(dep);
 	}
+
+	public void addDerivedRAW (Call dep)
+	{
+		AllRAWDependencies.add(dep);
+	}
+
+	public void addAllDerivedRAW (HashSet<Call> deps)
+	{
+		AllRAWDependencies.addAll(deps);
+	}
 	
 	public void addWAW (Call dep)
 	{
@@ -133,6 +150,11 @@ public class Call implements Cloneable{
 	public void addWAR (Call dep)
 	{
 		WARDependencies.add(dep);
+	}
+
+	public void addRAWDependent (Call dependent)
+	{
+		RAWDependents.add(dependent);
 	}
 	
 	public String toString ()
@@ -184,6 +206,12 @@ public class Call implements Cloneable{
 	{
 		AllRAWDependencies.clear();
 		AllRAWDependencies.addAll(allRAWDeps);
+	}
+
+	public void setRAWDependents(Set<Call> newRAWDependents)
+	{
+		RAWDependents.clear();
+		RAWDependents.addAll(newRAWDependents);
 	}
 
 	public boolean trulyDependsOfAny(HashSet<Call> callSet)

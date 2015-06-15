@@ -212,19 +212,29 @@ public class DepData {
 		HashMap<Integer, Call> reads = new HashMap<Integer, Call>();
 		HashMap<Integer, Call> writes = new HashMap<Integer, Call>();
 
+		Collection<Integer> callReads;
+		Collection<Integer> callWrites;
+
+
 		for (Call c: calls)
 		{
-			for (Integer pos: c.getReads())
+			callReads = c.getReads();
+			callWrites = c.getWrites();
+
+			for (Integer pos: callReads)
 			{
 				if (writes.keySet().contains(pos))
 				{
+					Call master = writes.get(pos);
+					c.addRAW(master);
+					master.addRAWDependent(c);
 					c.addRAW(writes.get(pos));
 				}
 
 				reads.put(pos, c);
 			}
 
-			for (Integer pos: c.getWrites())
+			for (Integer pos: callWrites)
 			{
 				if (writes.keySet().contains(pos))
 				{
@@ -239,100 +249,70 @@ public class DepData {
 				writes.put(pos, c);
 			}
 		}
+		
+		//addDerivedDependencies();
+		clearUntrueDeps();
+		topologicallySort();
+		trueTopologicalSort();
+	}
 
-		/*
-		for (int i = 1; i < calls.size(); i++)
+	private HashSet<Call> coreAddDerivedDependencies(Call d, HashMap<Integer, Boolean> alreadyVisited)
+	{
+		if (alreadyVisited.get(d.callNumber) == false)
 		{
-			for (int j = 0; j < i; j++)
+			alreadyVisited.put(d.callNumber, true);
+			System.out.println("Inspecting call #" + d.callNumber);
+
+			for (Call c: d.getRAWDependents())
 			{
-				Call c = calls.get(i);
-				Call d = calls.get(j);
-				
-				if (d != c && d.getCallNumber() < c.getCallNumber())
-				{
-					//RAW Test
-					for (Integer pos: d.getWrites())
-					{
-						if (c.readsFrom(pos))
-						{
-							c.addRAW(d);
-							break;
-						}
-					}
-					//WAW Test
-					for (Integer pos: d.getWrites())
-					{
-						if (c.writesTo(pos))
-						{
-							c.addWAW(d);
-							break;
-						}
-					}
-					//WAR Test
-					for (Integer pos: d.getReads())
-					{
-						if (c.writesTo(pos))
-						{
-							c.addWAR(d);
-							break;
-						}
-					}					
-				}
+				d.addAllDerivedRAW(coreAddDerivedDependencies(c, alreadyVisited));
 			}
 		}
-		*/
-		
-			/*
-		for (Call c: calls)
+		return d.getAllRAWDependencies();
+	}
+
+	private void addDerivedDependencies()
+	{
+		HashMap<Integer, Boolean> alreadyVisited = new HashMap<Integer, Boolean>();
+
+		for (int i = 0; i < calls.size(); i++)
+			alreadyVisited.put(i, false);
+
+		for (Call d: calls)
 		{
-			for (Call d: calls)
-			{
-				if (d != c && d.getCallNumber() < c.getCallNumber())
-				{
-					//RAW Test
-					for (Integer pos: d.getWrites())
-					{
-						if (c.readsFrom(pos))
-						{
-							c.addRAW(d);
-							break;
-						}
-					}
-					//WAW Test
-					for (Integer pos: d.getWrites())
-					{
-						if (c.writesTo(pos))
-						{
-							c.addWAW(d);
-							break;
-						}
-					}
-					//WAR Test
-					for (Integer pos: d.getReads())
-					{
-						if (c.writesTo(pos))
-						{
-							c.addWAR(d);
-							break;
-						}
-					}					
-				}
-			}
+			coreAddDerivedDependencies(d, alreadyVisited);
 		}
-		
-		*/
-		
-	//	clearUntrueDeps();
-//		topologicallySort();
-		//trueTopologicalSort();
 	}
 	
 	private void topologicallySort()
 	{
 		sortedList = new ArrayList<Set<Call>>();
-		HashSet<Call> aliveNodes = new HashSet<Call>(calls);
-		
-		while (!aliveNodes.isEmpty())
+
+		int i = 0;
+		while (true)
+		{
+			if (i >= calls.size())
+				break;
+
+			HashSet<Call> freeNodes = new HashSet<Call>();
+			while (true)
+			{
+				if (i >= calls.size())
+					break;
+				Call c = calls.get(i);
+				if (!c.dependsOfAny(freeNodes))
+				{
+					freeNodes.add(c);
+					i++;
+				}
+				else
+					break;
+			}
+			sortedList.add(freeNodes);
+		}
+
+		/*		
+		for (int i = 0; i < calls.size(); i++)
 		{
 			HashSet<Call> freeNodes = new HashSet<Call>();
 			
@@ -345,10 +325,39 @@ public class DepData {
 			aliveNodes.removeAll(freeNodes);
 			sortedList.add(freeNodes);
 		}	
+		*/
 	}
 	
 	private void trueTopologicalSort()
 	{
+		trulySortedList = new ArrayList<Set<Call>>();
+
+		int i = 0;
+		while (true)
+		{
+			if (i >= calls.size())
+				break;
+
+			HashSet<Call> freeNodes = new HashSet<Call>();
+			while (true)
+			{
+				if (i >= calls.size())
+					break;
+				Call c = calls.get(i);
+				if (!c.trulyDependsOfAny(freeNodes))
+				{
+					freeNodes.add(c);
+					i++;
+				}
+				else
+					break;
+			}
+			trulySortedList.add(freeNodes);
+		}
+
+
+
+		/*
 		trulySortedList = new ArrayList<Set<Call>>();
 		HashSet<Call> aliveNodes = new HashSet<Call>(calls);
 		
@@ -365,6 +374,7 @@ public class DepData {
 			aliveNodes.removeAll(freeNodes);
 			trulySortedList.add(freeNodes);
 		}			
+		*/
 	}
 
 	private void clearUntrueDeps() {
