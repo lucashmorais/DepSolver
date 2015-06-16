@@ -8,6 +8,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -226,9 +227,11 @@ public class DepData {
 				if (writes.keySet().contains(pos))
 				{
 					Call master = writes.get(pos);
-					c.addRAW(master);
-					master.addRAWDependent(c);
-					c.addRAW(writes.get(pos));
+					if (!master.equals(c))
+					{
+						master.addRAWDependent(c);
+						c.addRAW(master);
+					}
 				}
 
 				reads.put(pos, c);
@@ -238,12 +241,22 @@ public class DepData {
 			{
 				if (writes.keySet().contains(pos))
 				{
-					c.addWAW(writes.get(pos));
+					Call master = writes.get(pos);
+					if (!master.equals(c))
+					{
+						master.addWAWDependent(c);
+						c.addWAW(master);
+					}
 				}
 
 				if (reads.keySet().contains(pos))
 				{
-					c.addWAR(reads.get(pos));
+					Call master = reads.get(pos);
+					if (!master.equals(c))
+					{
+						master.addWARDependent(c);
+						c.addWAR(master);
+					}
 				}
 
 				writes.put(pos, c);
@@ -287,94 +300,73 @@ public class DepData {
 	private void topologicallySort()
 	{
 		sortedList = new ArrayList<Set<Call>>();
+		TreeSet<Call> underScrutiny = new TreeSet<Call>(calls);
 
-		int i = 0;
-		while (true)
+		for (Call c: calls)
 		{
-			if (i >= calls.size())
-				break;
-
-			HashSet<Call> freeNodes = new HashSet<Call>();
-			while (true)
-			{
-				if (i >= calls.size())
-					break;
-				Call c = calls.get(i);
-				if (!c.dependsOfAny(freeNodes))
-				{
-					freeNodes.add(c);
-					i++;
-				}
-				else
-					break;
-			}
-			sortedList.add(freeNodes);
+			c.resetDependencyCounters();
 		}
 
-		/*		
-		for (int i = 0; i < calls.size(); i++)
+		while (underScrutiny.size() > 0)
 		{
-			HashSet<Call> freeNodes = new HashSet<Call>();
-			
-			for (Call c: aliveNodes)
-			{				
-				if (!c.dependsOfAny(aliveNodes))
-					freeNodes.add(c);
+			HashSet<Call> newParallelSet = new HashSet<Call>();
+
+			for (Call c: underScrutiny)
+			{
+				if (c.numDependencies == 0)
+				{
+					newParallelSet.add(c);
+				}
 			}
 			
-			aliveNodes.removeAll(freeNodes);
-			sortedList.add(freeNodes);
-		}	
-		*/
+			for (Call r: newParallelSet)
+			{
+				underScrutiny.remove(r);
+				for (Call dep: r.AllDependents)
+				{
+					dep.numDependencies--;
+				}
+			}
+
+			sortedList.add(newParallelSet);
+		}
+				
 	}
 	
 	private void trueTopologicalSort()
 	{
 		trulySortedList = new ArrayList<Set<Call>>();
+		TreeSet<Call> underScrutiny = new TreeSet<Call>(calls);
 
-		int i = 0;
-		while (true)
+		for (Call c: calls)
 		{
-			if (i >= calls.size())
-				break;
-
-			HashSet<Call> freeNodes = new HashSet<Call>();
-			while (true)
-			{
-				if (i >= calls.size())
-					break;
-				Call c = calls.get(i);
-				if (!c.trulyDependsOfAny(freeNodes))
-				{
-					freeNodes.add(c);
-					i++;
-				}
-				else
-					break;
-			}
-			trulySortedList.add(freeNodes);
+			c.resetDependencyCounters();
 		}
 
-
-
-		/*
-		trulySortedList = new ArrayList<Set<Call>>();
-		HashSet<Call> aliveNodes = new HashSet<Call>(calls);
-		
-		while (!aliveNodes.isEmpty())
+		while (underScrutiny.size() > 0)
 		{
-			HashSet<Call> freeNodes = new HashSet<Call>();
-			
-			for (Call c: aliveNodes)
-			{				
-				if (!c.trulyDependsOfAny(aliveNodes))
-					freeNodes.add(c);
+			HashSet<Call> newParallelSet = new HashSet<Call>();
+
+			for (Call c: underScrutiny)
+			{
+				if (c.numRAWDependencies == 0)
+				{
+					newParallelSet.add(c);
+				}
 			}
 			
-			aliveNodes.removeAll(freeNodes);
-			trulySortedList.add(freeNodes);
-		}			
-		*/
+			for (Call r: newParallelSet)
+			{
+				underScrutiny.remove(r);
+				for (Call dep: r.RAWDependents)
+				{
+					dep.numRAWDependencies--;
+				}
+			}
+
+			trulySortedList.add(newParallelSet);
+		}
+				
 	}
 
 	private void clearUntrueDeps() {
@@ -391,7 +383,7 @@ public class DepData {
 		
 		for (Call c: calls)
 		{
-			auxSet = c.getWARDependencies();
+			auxSet = new HashSet<Call>(c.getWARDependencies());
 			auxSet.addAll(c.getWAWDependencies());
 			auxSet.removeAll(c.getAllRAWDependencies());
 			
